@@ -1,4 +1,24 @@
 {
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Server for portfolio",
+  "main": "./config/server.js",
+  "module": "module",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./config/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeCarteloo/Portfolio.git"
+  },
+  "author": "Filip Papiernik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeCarteloo/Portfolio/issues"
+  },
+  "homepage": "https://github.com/LeCarteloo/Portfolio#readme",
   "devDependencies": {
     "nodemon": "^2.0.19"
   },
