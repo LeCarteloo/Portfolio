@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./db.js";
+import techRouter from "../api/routes/techRoutes.js";
 import errorHandler from "../middleware/errorHandler.js";
 
 // Creating server
@@ -20,10 +21,10 @@ connectDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const port = process.env.PORT;
+// Adding routes
+app.use("/api/technology", techRouter);
 
 // Starting the server on given port
-// Starting the server on given portn
 app.listen(port, () =>
   console.log(`Server started at http://localhost:${port}`)
 );
