@@ -1,5 +1,6 @@
 import errorHandler from "../middleware/errorHandler.js";
 import techRouter from "../api/routes/techRoutes.js";
+import userRouter from "../api/routes/userRoutes.js";
 import { connectDB } from "./db.js";
 import express from "express";
 import dotenv from "dotenv";
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Adding routes
 app.use("/api/technology", techRouter);
+app.use("/api/users", userRouter);
 
 // Overridding default error handler with custom one
 app.use(errorHandler);

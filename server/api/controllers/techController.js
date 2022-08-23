@@ -12,13 +12,13 @@ const addTechnology = asyncHandler(async (req, res) => {
     throw new Error("Please add all fields");
   }
 
-  const technology = await Tech.create({
+  const newTechnology = await Tech.create({
     name,
     icon,
     type,
   });
 
-  res.status(201).json(technology);
+  res.status(201).json(newTechnology);
 });
 
 // @desc Get all technologies
