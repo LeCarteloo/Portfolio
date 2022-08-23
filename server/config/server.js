@@ -1,4 +1,4 @@
-import errorHandler from "../middleware/errorHandler.js";
+import errorHandler from "../middleware/errorMiddleware.js";
 import projectRouter from "../api/routes/projectRoutes.js";
 import techRouter from "../api/routes/techRoutes.js";
 import userRouter from "../api/routes/userRoutes.js";

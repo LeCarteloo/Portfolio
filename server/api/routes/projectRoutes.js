@@ -1,4 +1,5 @@
 import express from "express";
+import { protectOwner } from "../../middleware/authMiddleware.js";
 import {
   addProject,
   deleteProject,
@@ -9,8 +10,8 @@ import {
 const projectRouter = express.Router();
 
 projectRouter.get("/", getAllProjects);
-projectRouter.post("/", addProject);
-projectRouter.put("/", updateProject);
-projectRouter.delete("/", deleteProject);
+projectRouter.post("/", protectOwner, addProject);
+projectRouter.put("/", protectOwner, updateProject);
+projectRouter.delete("/", protectOwner, deleteProject);
 
 export default projectRouter;

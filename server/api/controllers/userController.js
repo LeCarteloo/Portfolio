@@ -1,6 +1,7 @@
 import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 // @desc Get all users
 // @route GET /api/users
@@ -46,8 +47,44 @@ const registerUser = asyncHandler(async (req, res) => {
 // @desc Login
 // @route POST /api/users/login
 // @access Public
-// Will be implemented in future
-const loginUser = asyncHandler(async (req, res) => {});
+const loginUser = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    res.status(400);
+    throw new Error("Please add all fields");
+  }
+
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    res.status(400);
+    throw new Error("Invalid credentials!");
+  }
+
+  const isPassCorrect = await bcrypt.compare(password, user.password);
+
+  if (!isPassCorrect) {
+    res.status(400);
+    throw new Error("Invalid credentials!");
+  }
+
+  const token = generateJWT(
+    user._id,
+    process.env.JWT_SECRET,
+    process.env.JWT_SECRET_LIFE
+  );
+
+  // Adding JWT token to user model
+  await User.findOneAndUpdate({ email }, { token: token });
+
+  res.json({
+    _id: user.id,
+    name: user.name,
+    surname: user.surname,
+    token: token,
+  });
+});
 
 // @desc Logout
 // @route POST /api/users/logout
@@ -89,4 +126,8 @@ const deleteUser = asyncHandler(async (req, res) => {
   res.status(200).json(deletedUser);
 });
 
-export { getAllUsers, registerUser, updateUser, deleteUser };
+const generateJWT = (id, secret, life) => {
+  return jwt.sign({ id }, secret, { expiresIn: life });
+};
+
+export { getAllUsers, registerUser, updateUser, deleteUser, loginUser };

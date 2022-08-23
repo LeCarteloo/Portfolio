@@ -100,6 +100,9 @@ const userSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  token: {
+    type: String,
+  },
 });
 
 export default mongoose.model("User", userSchema);
