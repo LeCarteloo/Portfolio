@@ -12,7 +12,7 @@ const techRouter = express.Router();
 // Technology routes
 techRouter.get("/", getAllTechnologies);
 techRouter.post("/", addTechnology);
-techRouter.put("/", updateTechnology);
-techRouter.delete("/", deleteTechnology);
+techRouter.put("/:id", updateTechnology);
+techRouter.delete("/:id", deleteTechnology);
 
 export default techRouter;

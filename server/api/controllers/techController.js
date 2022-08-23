@@ -43,7 +43,7 @@ const updateTechnology = asyncHandler(async (req, res) => {
 
   const updatedTechnology = await Tech.findByIdAndUpdate(
     req.params.id,
-    ...req.body,
+    req.body,
     { new: true }
   );
 
