@@ -4,23 +4,18 @@ const projectSchema = mongoose.Schema({
   name: {
     type: String,
     required: [true, "Please add name"],
+    unique: true,
   },
   hours: {
     type: Number,
-    required: [true, "Please add hours"],
   },
   //! Not yet nedeed
   // tasks: [],
-  duration: {
-    type: String,
-  },
   team: [
     {
-      user: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: [true, "Please add user id"],
-        ref: "Users",
-      },
+      type: mongoose.Schema.Types.ObjectId,
+      required: [true, "Please add user id"],
+      ref: "Users",
     },
   ],
   links: {
