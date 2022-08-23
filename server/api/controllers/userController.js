@@ -55,4 +55,38 @@ const loginUser = asyncHandler(async (req, res) => {});
 // Will be implemented in future
 const logoutUser = asyncHandler(async (req, res) => {});
 
-export { getAllUsers, registerUser };
+// @desc Update user by id
+// @route PUT /api/users/:id
+// @access Private
+const updateUser = asyncHandler(async (req, res) => {
+  const userExist = await User.findById(req.params.id);
+
+  if (!userExist) {
+    res.status(400);
+    throw new Error("User doesn't exist");
+  }
+
+  const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
+
+  res.status(200).json(updatedUser);
+});
+
+// @desc Delete user by id
+// @route DELETE /api/users/:id
+// @access Private
+const deleteUser = asyncHandler(async (req, res) => {
+  const userExist = await User.findById(req.params.id);
+
+  if (!userExist) {
+    res.status(400);
+    throw new Error("User doesn't exist");
+  }
+
+  const deletedUser = await User.findByIdAndDelete(req.params.id);
+
+  res.status(200).json(deletedUser);
+});
+
+export { getAllUsers, registerUser, updateUser, deleteUser };
