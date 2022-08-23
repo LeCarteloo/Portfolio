@@ -4,6 +4,7 @@ const techSchema = mongoose.Schema({
   name: {
     type: String,
     required: [true, "Please add name"],
+    unique: true,
   },
   icon: {
     type: String,
