@@ -14,22 +14,24 @@ $border-radius: 5px;
 // Fonts
 $font: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system,
   system-ui, sans-serif;
-$fz-xs: 13px;
-$fz-sm: 14px;
-$fz-md: 16px;
-$fz-lg: 18px;
-$fz-xl: 20px;
-$fz-xxl: 22px;
-$fz-heading: 32px;
+$fs-xs: 13px;
+$fs-sm: 14px;
+$fs-md: 16px;
+$fs-lg: 18px;
+$fs-xl: 20px;
+$fs-xxl: 22px;
+$fs-heading: 32px;
 
-// h1 60px black
+// Headings fonts
+$fs-h1: 60px;
+$fs-h2: 30px;
+$fs-h3: 28px;
+$fs-h4: 25px;
 
-// h2 30px bold
-
-// h3 28px black
-
-// h4 25px medium/regular
-
-// p 20px medium/regular
+// Headings weights
+$fw-h1: 900;
+$fw-h2: 700;
+$fw-h3: 900;
+$fw-h4: 400;
 
 // p (for languages in other projects) 18px-16px regular/light

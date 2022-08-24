@@ -1,10 +1,80 @@
 @use "./global" as global;
 
-.welcome-section {
-  //   background-color: red;
-  width: 100%;
+main {
   height: 100%;
+  // For development only
+  padding: 0 260px 0 260px;
+  padding: 0 15.8% 0 15.8%;
+}
+
+.welcome-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.1);
+
+  h3 {
+    font-size: 40px;
+    font-weight: 400;
+  }
+  h1 {
+    font-size: 70px;
+    font-weight: 900;
+  }
   h2 {
-    color: global.$font-color;
+    font-size: 50px;
+    font-weight: 400;
+  }
+  div {
+    margin-bottom: 2em;
+  }
+  button {
+    padding: 0.2em;
+    font-size: 35px;
+    border: 1px solid global.$font-color;
+    border-radius: global.$border-radius;
+    width: 450px;
+  }
+}
+
+// 01 - Projects
+.header {
+  position: relative;
+  height: 100%;
+
+  &::after {
+    content: "";
+    width: calc(100% - 410px);
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: global.$font-color;
+  }
+
+  .header-number {
+    color: global.$primary;
+    font-size: 200px;
+    text-shadow: -4px -4px 0 global.$font-color, 4px -4px 0 global.$font-color,
+      -4px 4px 0 global.$font-color, 4px 4px 0 global.$font-color;
+    opacity: 0.45;
+  }
+
+  .header-title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+
+.projects {
+  .featured {
+    margin-top: 3.2em;
+    display: grid;
+    gap: 2.2em;
+    grid-template-columns: 1fr 1fr;
   }
 }

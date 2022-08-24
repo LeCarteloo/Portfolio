@@ -1,9 +1,12 @@
 @use "./global" as global;
+@import url("https://rsms.me/inter/inter.css");
+html {
+  font-family: global.$font;
+}
 
 * {
   padding: 0;
   margin: 0;
-  font-family: global.$font;
 }
 
 body {
@@ -15,4 +18,36 @@ body,
 #root,
 .app {
   height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  color: global.$font-color;
+}
+
+h1 {
+  font-size: global.$fs-h1;
+  font-size: global.$fw-h1;
+}
+h2 {
+  font-size: global.$fs-h2;
+  font-size: global.$fw-h2;
+}
+h3 {
+  font-size: global.$fs-h3;
+  font-size: global.$fw-h3;
+}
+h4 {
+  font-size: global.$fs-h4;
+  font-size: global.$fw-h4;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: global.$font-color;
+  font-family: global.$font;
 }
