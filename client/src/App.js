@@ -1,8 +1,12 @@
+import Main from "./components/Main";
+
 function App() {
   return (
-    <section>
-      <h1>Portfolio website</h1>
-    </section>
+    <>
+      <div className="app">
+        <Main />
+      </div>
+    </>
   );
 }
 
