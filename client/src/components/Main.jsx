@@ -7,6 +7,7 @@ import "../styles/main.scss";
 import "../styles/projects.scss";
 // Assets
 import ProjectPhoto from "../assets/vu-mockup.png";
+import AboutMe from "./sections/AboutMe";
 
 const Main = () => {
   // Placeholder data
@@ -123,6 +124,7 @@ const Main = () => {
           </div>
         </div>
       </section>
+      <AboutMe />
     </main>
   );
 };

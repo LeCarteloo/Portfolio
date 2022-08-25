@@ -118,3 +118,93 @@ main {
     font-size: global.$fs-xxl;
   }
 }
+
+.timeline {
+  width: 100%;
+  margin-top: 1.5em;
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__separator {
+    font-size: global.$fs-h2;
+    color: global.$font-color;
+    margin: 0 0.5em;
+  }
+
+  &__link {
+    font-size: global.$fs-h2;
+    color: global.$font-color;
+    text-decoration: none;
+    &--active {
+      border-bottom: 2px solid global.$font-color;
+    }
+  }
+
+  &__wrapper {
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      border-radius: 10px;
+      background-color: rgba($color: global.$primary, $alpha: 0.8);
+    }
+    &::-webkit-scrollbar-button {
+      height: 0;
+      width: 0;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: global.$font-color;
+      border-radius: 10px;
+    }
+  }
+
+  &__body {
+    display: flex;
+  }
+}
+
+.step {
+  margin-top: 2.5em;
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: column;
+  min-width: 700px;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    top: 25px;
+    position: absolute;
+    z-index: -1;
+    background-color: global.$font-color;
+  }
+
+  &__icon {
+    color: global.$font-color;
+    margin-left: -9px;
+    line-height: 0;
+    font-size: 50px;
+    background-color: global.$primary;
+  }
+
+  &__time {
+    margin: 0.35em 0 0.5em 0;
+    font-size: global.$fs-h2;
+    color: global.$font-color;
+  }
+
+  &__desc {
+    margin: 0.2em 0 0.2em 0;
+    font-size: global.$fs-xxl;
+  }
+
+  h4 {
+    font-weight: 400;
+  }
+}
