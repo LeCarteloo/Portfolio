@@ -2,7 +2,6 @@ import ProjectStyle from "../../styles/projects.module.scss";
 import JSIcon from "../../assets/javascript.svg";
 
 const FeaturedProject = ({ project }) => {
-  console.log(project);
   return (
     <figure className={ProjectStyle["featured-project"]}>
       <div className={ProjectStyle["project-info"]}>

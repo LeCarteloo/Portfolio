@@ -2,6 +2,7 @@ import MainStyle from "../styles/main.module.scss";
 import FeaturedProject from "./projects/FeaturedProject";
 
 import ProjectPhoto from "../assets/vu-mockup.png";
+import Project from "./projects/Project";
 
 const Main = () => {
   // Placeholder data
@@ -31,6 +32,40 @@ const Main = () => {
         repo: "#",
       },
       content: "empty",
+      isFeatured: true,
+    },
+    {
+      name: "Virtual University",
+      photo: ProjectPhoto,
+      technologies: [
+        {
+          name: "Javascript",
+          icon: "faJavascript",
+          type: "language",
+        },
+      ],
+      links: {
+        live: "#",
+        repo: "#",
+      },
+      content: "empty",
+    },
+    {
+      name: "Virtual University",
+      photo: ProjectPhoto,
+      technologies: [
+        {
+          name: "Javascript",
+          icon: "faJavascript",
+          type: "language",
+        },
+      ],
+      links: {
+        live: "#",
+        repo: "#",
+      },
+      content: "empty",
+      isFeatured: true,
     },
     {
       name: "Virtual University",
@@ -72,6 +107,15 @@ const Main = () => {
             {projects.map((project) => (
               <FeaturedProject key={project.name} project={project} />
             ))}
+          </div>
+          <h2>OTHER PROJECTS</h2>
+          <div className={MainStyle["other"]}>
+            <Project />
+            <Project />
+            <Project />
+            <Project />
+            <Project />
+            <Project />
           </div>
         </div>
       </section>

@@ -2,9 +2,14 @@
 
 main {
   height: 100%;
-  // For development only
-  padding: 0 260px 0 260px;
-  padding: 0 15.8% 0 15.8%;
+  padding: 0 100px;
+
+  @media (max-width: 768px) {
+    padding: 0 50px;
+  }
+  @media (max-width: 480px) {
+    padding: 0 25px;
+  }
 }
 
 .welcome-section {
@@ -27,7 +32,7 @@ main {
     font-weight: 400;
   }
   div {
-    margin-bottom: 2em;
+    margin-bottom: 2.2em;
   }
   button {
     padding: 0.2em;
@@ -72,9 +77,19 @@ main {
 
 .projects {
   .featured {
-    margin-top: 3.2em;
+    margin: 3.2em 0 3.2em 0;
     display: grid;
     gap: 2.2em;
     grid-template-columns: 1fr 1fr;
+
+    @media (max-width: 1080px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  .other {
+    margin-top: 3.2em;
+    display: grid;
+    gap: 5%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
