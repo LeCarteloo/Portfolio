@@ -12,7 +12,7 @@ main {
   }
 }
 
-.welcome-section {
+.welcome {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -31,22 +31,24 @@ main {
     font-size: 50px;
     font-weight: 400;
   }
-  div {
+
+  &__text {
     margin-bottom: 2.2em;
   }
-  button {
-    padding: 0.2em;
+
+  &__button {
     font-size: 35px;
+    padding: 0.2em;
+    width: 450px;
     border: 1px solid global.$font-color;
     border-radius: global.$border-radius;
-    width: 450px;
   }
 }
 
-// 01 - Projects
 .header {
   position: relative;
   height: 100%;
+  width: 100%;
 
   &::after {
     content: "";
@@ -59,7 +61,7 @@ main {
     background-color: global.$font-color;
   }
 
-  .header-number {
+  &__number {
     color: global.$primary;
     font-size: 200px;
     text-shadow: -4px -4px 0 global.$font-color, 4px -4px 0 global.$font-color,
@@ -67,16 +69,18 @@ main {
     opacity: 0.45;
   }
 
-  .header-title {
+  &__title {
     position: absolute;
+    width: 300;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
   }
 }
 
+// 01. Projects
 .projects {
-  .featured {
+  &__featured {
     margin: 3.2em 0 3.2em 0;
     display: grid;
     gap: 2.2em;
@@ -86,10 +90,31 @@ main {
       grid-template-columns: 1fr;
     }
   }
-  .other {
+
+  &__other {
     margin-top: 3.2em;
+    gap: 2.2em;
     display: grid;
-    gap: 5%;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
+  .more {
+    margin-top: 3.2em;
+    margin-bottom: 3.2em;
+    text-align: center;
+    &__button {
+      padding: 0.5em;
+      width: 200px;
+      border-radius: global.$border-radius;
+      border: 1px solid global.$font-color;
+      font-size: global.$fs-xxl;
+    }
+  }
+}
+
+// 02. About me
+.about {
+  &__desc {
+    font-size: global.$fs-xxl;
   }
 }

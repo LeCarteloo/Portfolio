@@ -1,8 +1,12 @@
-import MainStyle from "../styles/main.module.scss";
-import FeaturedProject from "./projects/FeaturedProject";
-
-import ProjectPhoto from "../assets/vu-mockup.png";
+// Components
+import SectionHeader from "./SectionHeader";
 import Project from "./projects/Project";
+import FeaturedProject from "./projects/FeaturedProject";
+// Stylesheets
+import "../styles/main.scss";
+import "../styles/projects.scss";
+// Assets
+import ProjectPhoto from "../assets/vu-mockup.png";
 
 const Main = () => {
   // Placeholder data
@@ -12,17 +16,17 @@ const Main = () => {
       photo: ProjectPhoto,
       technologies: [
         {
-          name: "Javascript",
+          name: "Javascript1",
           icon: "faJavascript",
           type: "language",
         },
         {
-          name: "Javascript",
+          name: "Javascript2",
           icon: "faJavascript",
           type: "language",
         },
         {
-          name: "Javascript",
+          name: "Javascript3",
           icon: "faJavascript",
           type: "language",
         },
@@ -35,7 +39,7 @@ const Main = () => {
       isFeatured: true,
     },
     {
-      name: "Virtual University",
+      name: "Virtual University1",
       photo: ProjectPhoto,
       technologies: [
         {
@@ -51,7 +55,7 @@ const Main = () => {
       content: "empty",
     },
     {
-      name: "Virtual University",
+      name: "Virtual University2",
       photo: ProjectPhoto,
       technologies: [
         {
@@ -68,7 +72,7 @@ const Main = () => {
       isFeatured: true,
     },
     {
-      name: "Virtual University",
+      name: "Virtual University3",
       photo: ProjectPhoto,
       technologies: [
         {
@@ -88,34 +92,34 @@ const Main = () => {
   return (
     <main>
       {/* welcome section */}
-      <section className={MainStyle["welcome-section"]}>
-        <div>
+      <section className="welcome">
+        <div className="welcome__text">
           <h3>Hi, my name is</h3>
           <h1>Filip Papiernik</h1>
           <h2>I create web applications</h2>
         </div>
-        <button>Check my projects</button>
+        <button className="welcome__button">Check my projects</button>
       </section>
       <section>
-        <div className={MainStyle["header"]}>
-          <span className={MainStyle["header-number"]}>01</span>
-          <h1 className={MainStyle["header-title"]}>PROJECTS</h1>
-        </div>
-        <div className={MainStyle["projects"]}>
+        <SectionHeader number={"01"} title={"PROJECTS"} />
+        <div className="projects">
           <h2>FEATURED PROJECTS</h2>
-          <div className={MainStyle["featured"]}>
+          <div className="projects__featured">
             {projects.map((project) => (
               <FeaturedProject key={project.name} project={project} />
             ))}
           </div>
           <h2>OTHER PROJECTS</h2>
-          <div className={MainStyle["other"]}>
+          <div className="projects__other">
             <Project />
             <Project />
             <Project />
             <Project />
             <Project />
             <Project />
+          </div>
+          <div className="more">
+            <button className="more__button">SHOW MORE</button>
           </div>
         </div>
       </section>
