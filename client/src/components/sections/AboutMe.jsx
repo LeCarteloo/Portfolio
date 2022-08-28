@@ -85,6 +85,23 @@ const AboutMe = ({ education, experience, technologies }) => {
           <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
           <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
           <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
         </ul>
       </div>
     </section>

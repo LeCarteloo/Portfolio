@@ -2,6 +2,8 @@
 import SectionHeader from "./SectionHeader";
 import Project from "./projects/Project";
 import FeaturedProject from "./projects/FeaturedProject";
+import { BsFillEnvelopeFill } from "react-icons/bs";
+import { FaFacebookSquare, FaGithub, FaLinkedin } from "react-icons/fa";
 // Stylesheets
 import "../styles/main.scss";
 import "../styles/projects.scss";
@@ -125,6 +127,59 @@ const Main = () => {
         </div>
       </section>
       <AboutMe />
+      <section className="contact">
+        <SectionHeader title="Contact" number="03" />
+        <div className="contact__wrapper">
+          <div className="contact__left">
+            <h2>Want to message me?</h2>
+            <p>
+              If you would like to get in touch, email me or send a message with
+              the contact form
+            </p>
+            <div className="contact__email">
+              <BsFillEnvelopeFill />
+              <h3>filippapiernik1999@gmail.com</h3>
+            </div>
+            <div className="contact__social">
+              <a
+                href="https://www.facebook.com/filip.papiernik.3"
+                className="contact__item contact__item--facebook"
+              >
+                <FaFacebookSquare />
+              </a>
+              <a
+                href="https://github.com/LeCarteloo"
+                className="contact__item contact__item--github"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/filip-papiernik-390444230/"
+                className="contact__item contact__item--linkedin"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
+          </div>
+          <div className="contact__right">
+            <form>
+              <label>
+                Email adress
+                <input type="email" />
+              </label>
+              <label>
+                Subject
+                <input type="text" />
+              </label>
+              <label>
+                Message
+                <textarea type="text" />
+              </label>
+              <button type="submit">SUBMIT</button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };

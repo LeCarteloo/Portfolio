@@ -47,7 +47,9 @@ h4 {
   font-size: global.$fw-h4;
 }
 
-button {
+button,
+textarea,
+input {
   background-color: transparent;
   border: none;
   color: global.$font-color;
