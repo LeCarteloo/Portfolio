@@ -26,7 +26,7 @@ const AboutMe = ({ education, experience, technologies }) => {
   };
 
   return (
-    <section>
+    <section id="about">
       <SectionHeader number={"02"} title={"ABOUT ME"} />
       <div className="about">
         <p className="about__desc">

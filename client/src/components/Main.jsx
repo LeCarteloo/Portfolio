@@ -94,7 +94,6 @@ const Main = () => {
 
   return (
     <main>
-      {/* welcome section */}
       <section className="welcome">
         <div className="welcome__text">
           <h3>Hi, my name is</h3>
@@ -103,7 +102,7 @@ const Main = () => {
         </div>
         <button className="welcome__button">Check my projects</button>
       </section>
-      <section>
+      <section id="projects">
         <SectionHeader number={"01"} title={"PROJECTS"} />
         <div className="projects">
           <h2>FEATURED PROJECTS</h2>
@@ -127,7 +126,7 @@ const Main = () => {
         </div>
       </section>
       <AboutMe />
-      <section className="contact">
+      <section id="contact" className="contact">
         <SectionHeader title="Contact" number="03" />
         <div className="contact__wrapper">
           <div className="contact__left">

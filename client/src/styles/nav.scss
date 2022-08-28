@@ -1,0 +1,118 @@
+@use "./global" as global;
+@use "./anim" as anim;
+
+.navbar {
+  $root: &;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background-color: rgba($color: global.$primary, $alpha: 0.8);
+
+  /* If browser supports backdrop blur */
+  @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    backdrop-filter: blur(10px);
+  }
+
+  nav {
+    display: flex;
+    color: global.$font-color;
+    padding: 25px 50px;
+    justify-content: space-between;
+  }
+
+  &__items {
+    display: flex;
+    gap: 2em;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include anim.underline;
+
+    span {
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      font-size: 40px;
+      color: global.$primary;
+      text-shadow: -1px -1px 0 global.$font-color, 1px -1px 0 global.$font-color,
+        -1px 1px 0 global.$font-color, 1px 1px 0 global.$font-color;
+      opacity: 0.18;
+    }
+    a {
+      text-decoration: none;
+      color: global.$font-color;
+      font-size: global.$fs-xxl;
+    }
+  }
+
+  &__resume {
+    font-size: global.$fs-lg;
+    padding: 0.5em;
+    border: 1px solid global.$font-color;
+    border-radius: global.$border-radius;
+  }
+
+  &__hamburger {
+    display: none;
+
+    &--open {
+      #{$root}__line {
+        &:nth-child(1) {
+          width: 25px;
+          transform: rotate(405deg) translate(5px, 5px);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        &:nth-child(3) {
+          transform: rotate(315deg) translate(5px, -5px);
+        }
+      }
+    }
+
+    @media (max-width: 756px) {
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
+    }
+  }
+
+  &__line {
+    width: 25px;
+    height: 2px;
+    background-color: global.$font-color;
+    transition: ease-in-out 0.3s;
+
+    &:first-child {
+      width: 20px;
+    }
+  }
+
+  @media (max-width: 756px) {
+    height: 100%;
+    nav {
+      height: 100%;
+    }
+
+    &__items {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__item {
+      span {
+        font-size: global.$fs-h1;
+      }
+      a {
+        font-size: global.$fs-h2;
+      }
+    }
+  }
+}
