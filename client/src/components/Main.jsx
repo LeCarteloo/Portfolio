@@ -180,10 +180,16 @@ const Main = () => {
           </div>
         </div>
       </section>
+      <footer>
+        <p>
+          Designed and build by <b>Filip Papiernik</b>
+        </p>
+        <p>
+          See creation process of this website <u>here</u>
+        </p>
+      </footer>
     </main>
   );
 };
 
 export default Main;
-
-// __ inside element -- modifier

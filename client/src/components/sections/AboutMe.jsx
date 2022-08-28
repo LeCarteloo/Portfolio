@@ -48,7 +48,9 @@ const AboutMe = ({ education, experience, technologies }) => {
         <div className="timeline__nav">
           <a
             href="#!"
-            className={`timeline__link`}
+            className={`timeline__link ${
+              timeline === "education" ? "timeline__link--active" : ""
+            }`}
             onClick={() => setTimeline("education")}
           >
             EDUCATION
@@ -56,7 +58,9 @@ const AboutMe = ({ education, experience, technologies }) => {
           <span className="timeline__separator">|</span>
           <a
             href="#!"
-            className="timeline__link"
+            className={`timeline__link ${
+              timeline === "experience" ? "timeline__link--active" : ""
+            }`}
             onClick={() => setTimeline("experience")}
           >
             WORK EXPERIENCE

@@ -3,6 +3,7 @@
 // Featured project styles
 .fproject {
   position: relative;
+  cursor: pointer;
   opacity: 1;
   border-radius: global.$border-radius;
 
@@ -29,17 +30,6 @@
     // &__icon {
     //   color: global.$font-color;
     // }
-  }
-
-  &__links {
-    display: flex;
-    justify-content: space-evenly;
-
-    a {
-      text-decoration: none;
-      color: global.$font-color;
-      font-size: global.$fs-xxl;
-    }
   }
 
   &:hover {

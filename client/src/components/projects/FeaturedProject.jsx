@@ -16,11 +16,6 @@ const FeaturedProject = ({ project }) => {
             />
           ))}
         </div>
-        <div className="fproject__links">
-          <a href="#">LIVE</a>
-          <a href="#">GITHUB</a>
-          <a href="#">PAGE</a>
-        </div>
       </div>
       <img className="fproject__photo" src={project.photo} />
     </figure>

@@ -10,16 +10,6 @@ import "./styles/index.scss";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <img
-      src={ReferenceImg}
-      style={{
-        opacity: "0.5",
-        position: "absolute",
-        zIndex: -1,
-        top: 0,
-        left: 0,
-      }}
-    />
     <App />
   </React.StrictMode>
 );
