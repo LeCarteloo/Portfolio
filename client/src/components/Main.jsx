@@ -100,18 +100,20 @@ const Main = () => {
           <h1>Filip Papiernik</h1>
           <h2>I create web applications</h2>
         </div>
-        <button className="welcome__button">Check my projects</button>
+        <a href="#projects" className="welcome__link">
+          Check my projects
+        </a>
       </section>
       <section id="projects">
         <SectionHeader number={"01"} title={"PROJECTS"} />
         <div className="projects">
-          <h2>FEATURED PROJECTS</h2>
+          <h2 className="projects__subtitle">FEATURED PROJECTS</h2>
           <div className="projects__featured">
             {projects.map((project) => (
               <FeaturedProject key={project.name} project={project} />
             ))}
           </div>
-          <h2>OTHER PROJECTS</h2>
+          <h2 className="projects__subtitle">OTHER PROJECTS</h2>
           <div className="projects__other">
             <Project />
             <Project />

@@ -36,11 +36,15 @@ main {
     margin-bottom: 2.2em;
   }
 
-  &__button {
+  &__link {
     font-size: global.$fs-xxl;
     padding: 0.6em 0.5em;
     border: 1px solid global.$font-color;
     border-radius: global.$border-radius;
+    &:hover {
+      background-color: global.$font-color;
+      color: global.$primary;
+    }
   }
 }
 
@@ -52,8 +56,9 @@ main {
   &::after {
     content: "";
     width: calc(100% - 2px);
-    height: 2px;
+    height: 1px;
     position: absolute;
+    z-index: -5;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
@@ -61,13 +66,14 @@ main {
   }
 
   &__number {
+    position: relative;
     color: global.$primary;
     font-size: clamp(70px, 8vw, 200px);
 
-    text-shadow: -4px -4px 0 global.$font-color, 4px -4px 0 global.$font-color,
-      -4px 4px 0 global.$font-color, 4px 4px 0 global.$font-color;
+    text-shadow: -3px -3px 0 global.$font-color, 3px -3px 0 global.$font-color,
+      -3px 3px 0 global.$font-color, 3px 3px 0 global.$font-color;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
       text-shadow: -2px -2px 0 global.$font-color, 2px -2px 0 global.$font-color,
         -2px 2px 0 global.$font-color, 2px 2px 0 global.$font-color;
     }
@@ -77,7 +83,6 @@ main {
 
   &__title {
     position: absolute;
-    width: 300;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
@@ -86,8 +91,11 @@ main {
 
 // 01. Projects
 .projects {
+  &__subtitle {
+    margin-top: 1.8em;
+  }
+
   &__featured {
-    margin: 3.2em 0 3.2em 0;
     display: grid;
     gap: 2.2em;
     grid-template-columns: 1fr 1fr;
@@ -98,7 +106,6 @@ main {
   }
 
   &__other {
-    margin-top: 3.2em;
     gap: 2.2em;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

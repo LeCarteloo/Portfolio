@@ -57,6 +57,19 @@ input {
   font-family: global.$font;
 }
 
+button {
+  cursor: pointer;
+  &:hover {
+    background-color: global.$font-color;
+    color: global.$primary;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: global.$font-color;
+}
+
 section {
   max-width: 1383px;
   margin: 0 auto;

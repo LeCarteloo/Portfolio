@@ -1,13 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../styles/nav.scss";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
+  const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    let lastScrollPos = 0;
+    window.onscroll = () => {
+      const y = window.scrollY;
+      if (y <= lastScrollPos) {
+        setShow(true);
+      } else {
+        setShow(false);
+      }
+      lastScrollPos = y;
+    };
+  }, []);
 
   return (
-    <header className={`navbar ${open ? "navbar--open" : ""}`}>
+    <header
+      className={`navbar ${open ? "navbar--open" : ""} ${
+        show ? "navbar--show" : ""
+      }`}
+    >
       <nav>
-        <div className="navbar__logo">LOGO</div>
+        <div className="navbar__logo">
+          <a href="#">LOGO</a>
+        </div>
         <div className="navbar__items">
           <div className="navbar__item">
             <span>01</span>
