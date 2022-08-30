@@ -22,7 +22,7 @@ const NavBar = () => {
             <a href="#contact">Contact</a>
           </div>
           <button type="button" className="navbar__resume">
-            RESUME
+            Resume
           </button>
         </div>
         <button

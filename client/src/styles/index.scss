@@ -32,20 +32,20 @@ p {
 }
 
 h1 {
-  font-size: global.$fs-h1;
-  font-size: global.$fw-h1;
+  font-size: clamp(30px, 4vw, global.$fs-h1);
+  font-weight: global.$fw-h1;
 }
 h2 {
-  font-size: global.$fs-h2;
-  font-size: global.$fw-h2;
+  font-size: clamp(20px, 4vw, global.$fs-h2);
+  font-weight: global.$fw-h2;
 }
 h3 {
   font-size: global.$fs-h3;
-  font-size: global.$fw-h3;
+  font-weight: global.$fw-h3;
 }
 h4 {
   font-size: global.$fs-h4;
-  font-size: global.$fw-h4;
+  font-weight: global.$fw-h4;
 }
 
 button,

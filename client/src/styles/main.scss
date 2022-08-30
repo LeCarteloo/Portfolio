@@ -20,15 +20,15 @@ main {
   height: 100%;
 
   h3 {
-    font-size: 40px;
     font-weight: 400;
+    font-size: clamp(20px, 5vw, 40px);
   }
   h1 {
-    font-size: 70px;
+    font-size: clamp(40px, 8vw, 70px);
     font-weight: 900;
   }
   h2 {
-    font-size: 50px;
+    font-size: clamp(30px, 6vw, 50px);
     font-weight: 400;
   }
 
@@ -37,9 +37,8 @@ main {
   }
 
   &__button {
-    font-size: 35px;
-    padding: 0.2em;
-    width: 450px;
+    font-size: global.$fs-xxl;
+    padding: 0.6em 0.5em;
     border: 1px solid global.$font-color;
     border-radius: global.$border-radius;
   }
@@ -52,7 +51,7 @@ main {
 
   &::after {
     content: "";
-    width: calc(100% - 410px);
+    width: calc(100% - 2px);
     height: 2px;
     position: absolute;
     top: 50%;
@@ -63,9 +62,16 @@ main {
 
   &__number {
     color: global.$primary;
-    font-size: 200px;
+    font-size: clamp(70px, 8vw, 200px);
+
     text-shadow: -4px -4px 0 global.$font-color, 4px -4px 0 global.$font-color,
       -4px 4px 0 global.$font-color, 4px 4px 0 global.$font-color;
+
+    @media (max-width: 900px) {
+      text-shadow: -2px -2px 0 global.$font-color, 2px -2px 0 global.$font-color,
+        -2px 2px 0 global.$font-color, 2px 2px 0 global.$font-color;
+    }
+
     opacity: 0.45;
   }
 
@@ -135,7 +141,8 @@ main {
   }
 
   &__link {
-    font-size: global.$fs-h2;
+    font-size: clamp(18px, 3vw, global.$fs-h2);
+    text-align: center;
     color: global.$font-color;
     text-decoration: none;
 
@@ -216,13 +223,25 @@ main {
     color: global.$primary;
     border-radius: global.$border-radius;
     border: 2px solid global.$font-color;
-    text-shadow: -2px -2px 0 global.$font-color, 2px -2px 0 global.$font-color,
-      -2px 2px 0 global.$font-color, 2px 2px 0 global.$font-color;
     display: flex;
     justify-content: center;
     align-items: center;
     span {
-      font-size: 50px;
+      text-shadow: -2px -2px 0 global.$font-color, 2px -2px 0 global.$font-color,
+        -2px 2px 0 global.$font-color, 2px 2px 0 global.$font-color;
+      font-size: clamp(16px, 3vw, 50px);
+
+      @media (max-width: 1200px) {
+        text-shadow: -1px -1px 0 global.$font-color,
+          1px -1px 0 global.$font-color, -1px 1px 0 global.$font-color,
+          1px 1px 0 global.$font-color;
+      }
+
+      @media (max-width: 756px) {
+        text-shadow: -0.4px -0.4px 0 global.$font-color,
+          0.4px -0.4px 0 global.$font-color, -0.4px 0.4px 0 global.$font-color,
+          0.4px 0.4px 0 global.$font-color;
+      }
     }
     @media (max-width: 1500px) {
       span:nth-child(2) {
@@ -283,9 +302,13 @@ main {
     margin-top: 3em;
 
     svg {
+      display: none;
       font-size: 50px;
       color: global.$font-color;
       margin-right: 1em;
+    }
+    h3 {
+      font-size: clamp(16px, 2.5vw, 28px);
     }
   }
 
