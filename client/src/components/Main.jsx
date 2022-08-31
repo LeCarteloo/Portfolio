@@ -107,6 +107,13 @@ const Main = () => {
       desc: "Specialization in Web applications",
       place: "University of Rzeszów",
     },
+    {
+      _id: 3,
+      year: "2018-2022",
+      name: "Engineer's Degree in Informatics",
+      desc: "Specialization in Web applications",
+      place: "University of Rzeszów",
+    },
   ];
 
   const work = [
@@ -115,7 +122,14 @@ const Main = () => {
       year: "2022-present",
       name: "Company name",
       position: "Junior Fullstack Developer",
-      taskList: ["UI Design", "DB Design", "REST API"],
+      taskList: ["UI Design", "DB Design", "REST API", "Validation"],
+    },
+    {
+      _id: 2,
+      year: "2022-present",
+      name: "Company name",
+      position: "Junior Fullstack Developer",
+      taskList: ["UI Design", "DB Design", "REST API", "Validation"],
     },
   ];
 

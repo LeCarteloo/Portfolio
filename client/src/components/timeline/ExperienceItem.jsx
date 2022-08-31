@@ -20,8 +20,8 @@ const ExperienceItem = ({ year, name, position, taskList }) => {
 ExperienceItem.propTypes = {
   year: PropTypes.string,
   name: PropTypes.string,
-  desc: PropTypes.string,
-  place: PropTypes.array,
+  position: PropTypes.string,
+  taskList: PropTypes.array,
 };
 
 export default ExperienceItem;

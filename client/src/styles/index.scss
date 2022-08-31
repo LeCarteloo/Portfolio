@@ -41,10 +41,11 @@ h2 {
 }
 h3 {
   font-size: global.$fs-h3;
+  font-size: clamp(20px, 4vw, global.$fs-h2);
   font-weight: global.$fw-h3;
 }
 h4 {
-  font-size: global.$fs-h4;
+  font-size: clamp(15px, 4vw, global.$fs-h4);
   font-weight: global.$fw-h4;
 }
 
