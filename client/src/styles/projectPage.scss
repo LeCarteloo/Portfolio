@@ -1,0 +1,49 @@
+@use "_global" as global;
+
+.showcase {
+  section {
+    &:first-child {
+      padding-top: 140px;
+    }
+    &:not(:first-child) {
+      padding-top: 3em;
+    }
+  }
+  &__title {
+    padding: 0.15em;
+    background-color: #5483d8;
+  }
+  &__info {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+    @media (max-width: 756px) {
+      grid-template-columns: 1fr;
+    }
+    justify-items: center;
+    margin-top: 3em;
+  }
+  &__group {
+    margin-top: 2em;
+    text-align: center;
+  }
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    gap: 1em;
+    justify-content: center;
+    color: global.$font-color;
+  }
+  &__color {
+    padding: 10px;
+    width: 70px;
+    height: 70px;
+    border-radius: global.$border-radius;
+    background-color: #5483d8;
+    display: flex;
+    text-align: center;
+    align-items: flex-end;
+  }
+}
