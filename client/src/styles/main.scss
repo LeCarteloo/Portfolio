@@ -2,7 +2,7 @@
 @use "./anim" as anim;
 
 main {
-  height: 100%;
+  min-height: 100%;
   padding: 0 100px;
 
   @media (max-width: 768px) {
@@ -14,10 +14,10 @@ main {
 }
 
 .welcome {
+  height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 100%;
 
   h3 {
     font-weight: 400;
@@ -383,11 +383,14 @@ main {
 }
 
 footer {
-  padding: 2.5em 0;
+  padding: 4em 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: global.$fs-lg;
+  p {
+    font-size: 15px;
+  }
 }

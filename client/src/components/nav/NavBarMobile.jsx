@@ -1,26 +1,34 @@
 import { MdOutlineArticle, MdOutlineMessage } from "react-icons/md";
-import { AiOutlineUser, AiOutlineArrowDown } from "react-icons/ai";
+import {
+  AiOutlineHome,
+  AiOutlineUser,
+  AiOutlineArrowDown,
+} from "react-icons/ai";
 
 const NavBarMobile = () => {
   return (
     <header className="navbar-m">
       <nav>
-        <div className="navbar-m__item">
-          <MdOutlineArticle size="35px" />
-          <a>PROJECTS</a>
-        </div>
-        <div className="navbar-m__item">
-          <AiOutlineUser size="35px" />
-          <a>ABOUT ME</a>
-        </div>
-        <div className="navbar-m__item">
-          <MdOutlineMessage size="35px" />
-          <a>CONTACT</a>
-        </div>
-        <div className="navbar-m__item">
-          <AiOutlineArrowDown size="35px" />
-          <a>RESUME</a>
-        </div>
+        <a href="#" className="navbar-m__link">
+          <AiOutlineHome size="25px" />
+          HOME
+        </a>
+        <a href="#projects" className="navbar-m__link">
+          <MdOutlineArticle size="25px" />
+          PROJECTS
+        </a>
+        <a href="#about" className="navbar-m__link">
+          <AiOutlineUser size="25px" />
+          ABOUT ME
+        </a>
+        <a href="#contact" className="navbar-m__link">
+          <MdOutlineMessage size="25px" />
+          CONTACT
+        </a>
+        <a href="#!" className="navbar-m__link">
+          <AiOutlineArrowDown size="25px" />
+          RESUME
+        </a>
       </nav>
     </header>
   );
