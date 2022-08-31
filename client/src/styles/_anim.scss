@@ -14,8 +14,8 @@
     background-color: global.$font-color;
   }
 
-  &:hover,
-  &:focus-within {
+  &:hover:not(:disabled),
+  &:focus-within:not(:disabled) {
     &::after {
       visibility: visible;
       width: 100%;

@@ -92,6 +92,33 @@ const Main = () => {
     },
   ];
 
+  // Timeline data
+  const education = [
+    {
+      _id: 1,
+      year: "2022-present",
+      name: "Master's Degree in Informatics",
+      place: "University of Rzeszów",
+    },
+    {
+      _id: 2,
+      year: "2018-2022",
+      name: "Engineer's Degree in Informatics",
+      desc: "Specialization in Web applications",
+      place: "University of Rzeszów",
+    },
+  ];
+
+  const work = [
+    {
+      _id: 1,
+      year: "2022-present",
+      name: "Company name",
+      position: "Junior Fullstack Developer",
+      taskList: ["UI Design", "DB Design", "REST API"],
+    },
+  ];
+
   return (
     <main>
       <section className="welcome">
@@ -127,7 +154,7 @@ const Main = () => {
           </div>
         </div>
       </section>
-      <AboutMe />
+      <AboutMe experience={work} education={education} />
       <section id="contact" className="contact">
         <SectionHeader title="Contact" number="03" />
         <div className="contact__wrapper">

@@ -1,29 +1,12 @@
 import { useState } from "react";
 import SectionHeader from "../SectionHeader";
-import TimelineItem from "../timeline/TimelineItem";
+import EducationItem from "../timeline/EducationItem";
 import JS from "../../assets/javascript.svg";
 import StackItem from "../stack/StackItem";
+import ExperienceItem from "../timeline/ExperienceItem";
 
 const AboutMe = ({ education, experience, technologies }) => {
   const [timeline, setTimeline] = useState("education");
-
-  const styles = {
-    myStyleClassName: {
-      padding: "16px 0px 16px 0px",
-      "& a": {
-        textDecoration: "none",
-        color: "#0000ee",
-      },
-      "& a:hover": {
-        textDecoration: "underline",
-      },
-    },
-    myButtonClass: {
-      "&:hover": {
-        backgroundColor: "red",
-      },
-    },
-  };
 
   return (
     <section id="about">
@@ -46,36 +29,35 @@ const AboutMe = ({ education, experience, technologies }) => {
       </div>
       <div className="timeline">
         <div className="timeline__nav">
-          <a
-            href="#!"
+          <button
             className={`timeline__link ${
               timeline === "education" ? "timeline__link--active" : ""
             }`}
             onClick={() => setTimeline("education")}
+            disabled={education.length === 0}
           >
             EDUCATION
-          </a>
+          </button>
           <span className="timeline__separator">|</span>
-          <a
-            href="#!"
+          <button
             className={`timeline__link ${
               timeline === "experience" ? "timeline__link--active" : ""
             }`}
             onClick={() => setTimeline("experience")}
+            disabled={experience.length === 0}
           >
             WORK EXPERIENCE
-          </a>
+          </button>
         </div>
         <div className="timeline__wrapper">
           <div className="timeline__body">
-            {timeline === "education" ? (
-              <>
-                <TimelineItem />
-                <TimelineItem />
-              </>
-            ) : (
-              <TimelineItem />
-            )}
+            {timeline === "education"
+              ? education.map((elem) => (
+                  <EducationItem key={elem._id} {...elem} />
+                ))
+              : experience.map((elem) => (
+                  <ExperienceItem key={elem._id} {...elem} />
+                ))}
           </div>
         </div>
       </div>

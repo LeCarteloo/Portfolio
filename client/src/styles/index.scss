@@ -59,6 +59,13 @@ input {
 
 button {
   cursor: pointer;
+  &:disabled {
+    opacity: 0.5;
+    cursor: auto;
+  }
+}
+
+.btn {
   &:hover {
     background-color: global.$font-color;
     color: global.$primary;

@@ -160,6 +160,7 @@ main {
     overflow-x: auto;
     &::-webkit-scrollbar {
       border-radius: 10px;
+      height: 7px;
       background-color: rgba($color: global.$primary, $alpha: 0.8);
     }
     &::-webkit-scrollbar-button {
@@ -219,6 +220,12 @@ main {
 
   h4 {
     font-weight: 400;
+  }
+
+  &__list {
+    color: global.$font-color;
+    list-style-type: "-  ";
+    margin-left: 1.1em;
   }
 }
 

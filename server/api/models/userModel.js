@@ -73,10 +73,12 @@ const userSchema = mongoose.Schema({
         type: String,
         required: [true, "Please add position"],
       },
-      taskList: {
-        type: String,
-        required: [true, "Please add task list"],
-      },
+      taskList: [
+        {
+          type: String,
+          required: [true, "Please add task list"],
+        },
+      ],
     },
   ],
   technologies: [
