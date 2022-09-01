@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../styles/nav.scss";
+import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
@@ -44,6 +45,19 @@ const NavBar = () => {
     };
   }, [open === true]);
 
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      let elem = document.getElementById(location.hash.slice(1));
+      if (elem) {
+        elem.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
+  }, [location]);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", onScroll);
@@ -59,20 +73,20 @@ const NavBar = () => {
       <header className={`navbar ${show ? "navbar--show" : ""}`}>
         <nav className="navbar__nav">
           <div className="navbar__logo">
-            <a href="#">LOGO</a>
+            <a href="/">LOGO</a>
           </div>
           <div className="navbar__items">
             <div className="navbar__item">
               <span>01</span>
-              <a href="#projects">Projects</a>
+              <Link to="/#projects">Projects</Link>
             </div>
             <div className="navbar__item">
               <span>02</span>
-              <a href="#about">About me</a>
+              <Link to="/#about">About me</Link>
             </div>
             <div className="navbar__item">
               <span>03</span>
-              <a href="#contact">Contact</a>
+              <Link to="/#contact">Contact</Link>
             </div>
             <button type="button" className="navbar__resume">
               Resume
@@ -94,24 +108,24 @@ const NavBar = () => {
         <nav className="menu__nav">
           <ul>
             <li>
-              <a href="#" onClick={() => openMenu(false)}>
+              <Link to="/" onClick={() => openMenu(false)}>
                 HOME
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#projects" onClick={() => openMenu(false)}>
+              <Link to="/#projects" onClick={() => openMenu(false)}>
                 PROJECTS
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#about" onClick={() => openMenu(false)}>
+              <Link to="/#about" onClick={() => openMenu(false)}>
                 ABOUT ME
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#contact" onClick={() => openMenu(false)}>
+              <Link to="/#contact" onClick={() => openMenu(false)}>
                 CONTACT
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

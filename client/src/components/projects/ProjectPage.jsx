@@ -42,6 +42,7 @@ const ProjectPage = () => {
             <div className="showcase__content">
               {project.technologies.map((tech) => (
                 <img
+                  key={tech.icon}
                   width="70px"
                   height="70px"
                   src={`/icons/${tech.icon}.svg`}
@@ -54,6 +55,7 @@ const ProjectPage = () => {
             <div className="showcase__content">
               {project.tools.map((tool) => (
                 <img
+                  key={tool.icon}
                   width="70px"
                   height="70px"
                   src={`/icons/${tool.icon}.svg`}
@@ -66,6 +68,7 @@ const ProjectPage = () => {
             <div className="showcase__content">
               {project.colors.map((color) => (
                 <div
+                  key={color}
                   className="showcase__color"
                   style={{ backgroundColor: color }}
                 >
@@ -89,8 +92,12 @@ const ProjectPage = () => {
           nam ducimus accusantium molestias!
         </p>
         <div className="showcase__team">
-          {team.map((member) => (
-            <TeamItem member={member} color={project.colors[0]} />
+          {team.map((member, i) => (
+            <TeamItem
+              key={`member-${i}`}
+              member={member}
+              color={project.colors[0]}
+            />
           ))}
         </div>
       </section>
