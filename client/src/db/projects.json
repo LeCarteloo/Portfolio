@@ -47,21 +47,90 @@
   },
   {
     "_id": 2,
-    "name": "Virtual University",
+    "name": "Transport Company",
     "photo": "/images/vu-mockup.png",
-    "repoName": "VirtualUniversity",
+    "repoName": "TransportCompany",
     "links": {
-      "live": "#",
-      "repo": "#"
+      "repo": "https://github.com/LeCarteloo/TransportCompany"
     },
     "technologies": [
       {
-        "name": "React.js",
-        "icon": "react",
-        "type": "lang"
+        "name": "MySQL",
+        "icon": "mysql"
+      },
+      {
+        "name": "Java",
+        "icon": "java"
+      },
+      {
+        "name": "Hibernate",
+        "icon": "hibernate"
+      },
+      {
+        "name": "CSS",
+        "icon": "css"
       }
     ],
-    "colors": ["#339fcd", "#1164aa", "#302c3c", "#2f3142", "#1c1c2c"],
+    "tools": [
+      {
+        "name": "Git",
+        "icon": "git"
+      }
+    ],
+    "colors": ["#ffa500", "#d82020", "#302c3c", "#121212", "#ffffff"],
+    "content": "empty",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptate velit eum quis nam iste nulla minima necessitatibus temporibus odit odio quas, nesciunt, eos cumque officiis suscipit neque voluptatibus! Fugiat explicabo quaerat nisi culpa eum maiores, debitis quisquam repellat quo odit ex cupiditate tenetur non quas maxime possimus esse voluptas excepturi unde illo reprehenderit et itaque praesentium ea. Consectetur quod labore in similique nobis voluptatibus praesentium odit error ut dolor?",
+    "isFeatured": true
+  },
+  {
+    "_id": 3,
+    "name": "Flow Free Web",
+    "photo": "/images/vu-mockup.png",
+    "repoName": "FlowFreeWeb",
+    "links": {
+      "repo": "https://github.com/LeCarteloo/FlowFreeWeb"
+    },
+    "technologies": [
+      {
+        "name": "JavaScript",
+        "icon": "javascript"
+      },
+      {
+        "name": "Node.js",
+        "icon": "node"
+      },
+      {
+        "name": "Express.js",
+        "icon": "express"
+      },
+      {
+        "name": "Lodash.js",
+        "icon": "lodash"
+      },
+      {
+        "name": "CSS",
+        "icon": "css"
+      },
+      {
+        "name": "Socket.io",
+        "icon": "socketio"
+      },
+      {
+        "name": "Jest.js",
+        "icon": "jest"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Git",
+        "icon": "git"
+      },
+      {
+        "name": "Nodemon",
+        "icon": "nodemon"
+      }
+    ],
+    "colors": ["#4caf50", "#302c3c", "#121212"],
     "content": "empty",
     "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptate velit eum quis nam iste nulla minima necessitatibus temporibus odit odio quas, nesciunt, eos cumque officiis suscipit neque voluptatibus! Fugiat explicabo quaerat nisi culpa eum maiores, debitis quisquam repellat quo odit ex cupiditate tenetur non quas maxime possimus esse voluptas excepturi unde illo reprehenderit et itaque praesentium ea. Consectetur quod labore in similique nobis voluptatibus praesentium odit error ut dolor?",
     "isFeatured": true

@@ -40,7 +40,6 @@
     width: 70px;
     height: 70px;
     border-radius: global.$border-radius;
-    background-color: #5483d8;
     display: flex;
     text-align: center;
     text-transform: uppercase;
@@ -61,7 +60,16 @@
   transition: ease-in-out 0.2s;
 
   &--me {
-    border: 1px solid #5483d8;
+    position: relative;
+    &::after {
+      content: "ME";
+      position: absolute;
+      top: 0.3em;
+      left: 0.3em;
+      color: global.$font-color;
+      opacity: 0.6;
+      font-size: 14px;
+    }
   }
 
   &:hover {

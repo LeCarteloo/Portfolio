@@ -69,7 +69,7 @@ const ProjectPage = () => {
                   className="showcase__color"
                   style={{ backgroundColor: color }}
                 >
-                  {color}
+                  <span style={{ mixBlendMode: "difference" }}>{color}</span>
                 </div>
               ))}
             </div>

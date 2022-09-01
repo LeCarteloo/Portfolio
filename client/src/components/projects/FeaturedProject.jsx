@@ -14,6 +14,7 @@ const FeaturedProject = ({ project }) => {
                 src={`/icons/${tech.icon}.svg`}
                 width="48px"
                 height="48px"
+                alt={tech.name}
               />
             ))}
           </div>

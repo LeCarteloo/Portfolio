@@ -12,17 +12,23 @@ const TeamItem = ({ color, member }) => {
 
   return (
     <div
-      className="team-item"
+      className={`team-item ${
+        member.author.login === "LeCarteloo" ? "team-item--me" : ""
+      }`}
       style={{
         border: member.author.login === "LeCarteloo" && `solid 1px ${color}`,
       }}
     >
-      <img className="team-item__avatar" src={member.author.avatar_url} />
+      <img
+        className="team-item__avatar"
+        src={member.author.avatar_url}
+        alt="member-avatar"
+      />
       <div className="team-item__wrapper">
         <table>
           <tbody>
             <tr>
-              <th>USERNAME {member.author.login === "LeCarteloo" && "(me)"}</th>
+              <th>USERNAME</th>
               <th>NAME</th>
               <th>COMMITS</th>
               <th>ADDITIONS</th>
