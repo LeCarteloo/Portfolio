@@ -8,90 +8,11 @@ import { FaFacebookSquare, FaGithub, FaLinkedin } from "react-icons/fa";
 import "../styles/main.scss";
 import "../styles/projects.scss";
 // Assets
-import ProjectPhoto from "../assets/vu-mockup.png";
 import AboutMe from "./sections/AboutMe";
+// JSON db
+import projects from "../db/projects.json";
 
 const Main = () => {
-  // Placeholder data
-  const projects = [
-    {
-      name: "Virtual University",
-      photo: ProjectPhoto,
-      technologies: [
-        {
-          name: "Javascript1",
-          icon: "faJavascript",
-          type: "language",
-        },
-        {
-          name: "Javascript2",
-          icon: "faJavascript",
-          type: "language",
-        },
-        {
-          name: "Javascript3",
-          icon: "faJavascript",
-          type: "language",
-        },
-      ],
-      links: {
-        live: "#",
-        repo: "#",
-      },
-      content: "empty",
-      isFeatured: true,
-    },
-    {
-      name: "Virtual University1",
-      photo: ProjectPhoto,
-      technologies: [
-        {
-          name: "Javascript",
-          icon: "faJavascript",
-          type: "language",
-        },
-      ],
-      links: {
-        live: "#",
-        repo: "#",
-      },
-      content: "empty",
-    },
-    {
-      name: "Virtual University2",
-      photo: ProjectPhoto,
-      technologies: [
-        {
-          name: "Javascript",
-          icon: "faJavascript",
-          type: "language",
-        },
-      ],
-      links: {
-        live: "#",
-        repo: "#",
-      },
-      content: "empty",
-      isFeatured: true,
-    },
-    {
-      name: "Virtual University3",
-      photo: ProjectPhoto,
-      technologies: [
-        {
-          name: "Javascript",
-          icon: "faJavascript",
-          type: "language",
-        },
-      ],
-      links: {
-        live: "#",
-        repo: "#",
-      },
-      content: "empty",
-    },
-  ];
-
   // Timeline data
   const education = [
     {
@@ -115,6 +36,8 @@ const Main = () => {
       place: "University of Rzeszów",
     },
   ];
+
+  console.log(projects);
 
   const work = [
     {
@@ -151,7 +74,7 @@ const Main = () => {
           <h2 className="projects__subtitle">FEATURED PROJECTS</h2>
           <div className="projects__featured">
             {projects.map((project) => (
-              <FeaturedProject key={project.name} project={project} />
+              <FeaturedProject key={project._id} project={project} />
             ))}
           </div>
           <h2 className="projects__subtitle">OTHER PROJECTS</h2>

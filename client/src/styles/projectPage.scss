@@ -10,8 +10,7 @@
     }
   }
   &__title {
-    padding: 0.15em;
-    background-color: #5483d8;
+    padding: 0.16em;
   }
   &__info {
     display: grid;
@@ -44,6 +43,7 @@
     background-color: #5483d8;
     display: flex;
     text-align: center;
+    text-transform: uppercase;
     align-items: flex-end;
   }
   &__team {

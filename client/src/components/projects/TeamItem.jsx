@@ -1,7 +1,7 @@
 import { FaFacebookSquare, FaGithub, FaLinkedin } from "react-icons/fa";
 import PropTypes from "prop-types";
 
-const TeamItem = ({ theme, member }) => {
+const TeamItem = ({ color, member }) => {
   let additions = 0;
   let deletions = 0;
 
@@ -14,7 +14,7 @@ const TeamItem = ({ theme, member }) => {
     <div
       className="team-item"
       style={{
-        border: member.author.login === "LeCarteloo" && `solid 1px ${theme}`,
+        border: member.author.login === "LeCarteloo" && `solid 1px ${color}`,
       }}
     >
       <img className="team-item__avatar" src={member.author.avatar_url} />
@@ -22,7 +22,7 @@ const TeamItem = ({ theme, member }) => {
         <table>
           <tbody>
             <tr>
-              <th>USERNAME</th>
+              <th>USERNAME {member.author.login === "LeCarteloo" && "(me)"}</th>
               <th>NAME</th>
               <th>COMMITS</th>
               <th>ADDITIONS</th>

@@ -2,26 +2,30 @@ import "../../styles/projectPage.scss";
 import { FaReact, FaSass } from "react-icons/fa";
 import { SiPostman } from "react-icons/si";
 import TeamItem from "./TeamItem";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import ProjectsJSON from "../../db/projects.json";
+import SectionTitle from "./SectionTitle";
 
-const ProjectPage = ({ theme, repoName }) => {
+const ProjectPage = () => {
   const [team, setTeam] = useState([]);
-  // repoName = "FlowFreeWeb";
-  repoName = "TransportCompany";
+  const params = useParams();
 
-  // https://api.github.com/users/LeCarteloo
+  // Searching open project in local JSON db
+  const project = ProjectsJSON.find(
+    (elem) => elem._id.toString() === params.id
+  );
 
   useEffect(() => {
     const getContributors = async () => {
       const response = await fetch(
-        `https://api.github.com/repos/LeCarteloo/${repoName}/stats/contributors`
+        `https://api.github.com/repos/LeCarteloo/${project.repoName}/stats/contributors`
       );
-      const data = await response.json();
-      const sortedData = await data.sort((a, b) =>
-        a.total < b.total ? 1 : -1
-      );
-      setTeam(sortedData);
+      let data = await response.json();
+      if (data.length > 0) {
+        data = await data.sort((a, b) => (a.total < b.total ? 1 : -1));
+      }
+      setTeam(data);
     };
 
     getContributors();
@@ -30,50 +34,54 @@ const ProjectPage = ({ theme, repoName }) => {
   return (
     <main className="main showcase">
       <section>
-        <h2 className="showcase__title">THE PROJECT</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-          voluptate velit eum quis nam iste nulla minima necessitatibus
-          temporibus odit odio quas, nesciunt, eos cumque officiis suscipit
-          neque voluptatibus! Fugiat explicabo quaerat nisi culpa eum maiores,
-          debitis quisquam repellat quo odit ex cupiditate tenetur non quas
-          maxime possimus esse voluptas excepturi unde illo reprehenderit et
-          itaque praesentium ea. Consectetur quod labore in similique nobis
-          voluptatibus praesentium odit error ut dolor?
-        </p>
+        <SectionTitle title="THE PROJECT" color={project.colors[0]} />
+        <p>{project.desc}</p>
         <div className="showcase__info">
           <div className="showcase__group">
             <h4>Used technologies:</h4>
             <div className="showcase__content">
-              <FaReact size="70px" />
-              <FaSass size="70px" />
+              {project.technologies.map((tech) => (
+                <img
+                  width="70px"
+                  height="70px"
+                  src={`/icons/${tech.icon}.svg`}
+                />
+              ))}
             </div>
           </div>
           <div className="showcase__group">
             <h4>Used tools:</h4>
             <div className="showcase__content">
-              <SiPostman size="70px" />
+              {project.tools.map((tool) => (
+                <img
+                  width="70px"
+                  height="70px"
+                  src={`/icons/${tool.icon}.svg`}
+                />
+              ))}
             </div>
           </div>
           <div className="showcase__group">
             <h4>Used colors:</h4>
             <div className="showcase__content">
-              <div className="showcase__color">#5483d8</div>
-              <div className="showcase__color">#5483d8</div>
-              <div className="showcase__color">#5483d8</div>
-              <div className="showcase__color">#5483d8</div>
-              <div className="showcase__color">#5483d8</div>
-              <div className="showcase__color">#5483d8</div>
+              {project.colors.map((color) => (
+                <div
+                  className="showcase__color"
+                  style={{ backgroundColor: color }}
+                >
+                  {color}
+                </div>
+              ))}
             </div>
           </div>
           <div className="showcase__group">
             <h4>Used fonts:</h4>
-            <div className="showcase__content"></div>
+            <div className="showcase__content">-</div>
           </div>
         </div>
       </section>
       <section>
-        <h2 className="showcase__title">TEAM</h2>
+        <SectionTitle title="TEAM" color={project.colors[0]} />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Non quos,
           repellendus deleniti perferendis dolor nisi? Delectus, consequatur
@@ -82,7 +90,7 @@ const ProjectPage = ({ theme, repoName }) => {
         </p>
         <div className="showcase__team">
           {team.map((member) => (
-            <TeamItem member={member} />
+            <TeamItem member={member} color={project.colors[0]} />
           ))}
         </div>
       </section>

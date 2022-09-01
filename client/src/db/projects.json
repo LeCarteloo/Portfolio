@@ -1,0 +1,69 @@
+[
+  {
+    "_id": 1,
+    "name": "Virtual University",
+    "photo": "/images/vu-mockup.png",
+    "repoName": "VirtualUniversity",
+    "links": {
+      "live": "#",
+      "repo": "#"
+    },
+    "technologies": [
+      {
+        "name": "React.js",
+        "icon": "react"
+      },
+      {
+        "name": "MongoDB",
+        "icon": "mongodb"
+      },
+      {
+        "name": "Node.js",
+        "icon": "node"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "javascript"
+      },
+      {
+        "name": "Scss.js",
+        "icon": "scss"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Postman",
+        "icon": "postman"
+      },
+      {
+        "name": "Git",
+        "icon": "git"
+      }
+    ],
+    "colors": ["#339fcd", "#1164aa", "#302c3c", "#2f3142", "#1c1c2c"],
+    "content": "empty",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptate velit eum quis nam iste nulla minima necessitatibus temporibus odit odio quas, nesciunt, eos cumque officiis suscipit neque voluptatibus! Fugiat explicabo quaerat nisi culpa eum maiores, debitis quisquam repellat quo odit ex cupiditate tenetur non quas maxime possimus esse voluptas excepturi unde illo reprehenderit et itaque praesentium ea. Consectetur quod labore in similique nobis voluptatibus praesentium odit error ut dolor?",
+    "isFeatured": true
+  },
+  {
+    "_id": 2,
+    "name": "Virtual University",
+    "photo": "/images/vu-mockup.png",
+    "repoName": "VirtualUniversity",
+    "links": {
+      "live": "#",
+      "repo": "#"
+    },
+    "technologies": [
+      {
+        "name": "React.js",
+        "icon": "react",
+        "type": "lang"
+      }
+    ],
+    "colors": ["#339fcd", "#1164aa", "#302c3c", "#2f3142", "#1c1c2c"],
+    "content": "empty",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptate velit eum quis nam iste nulla minima necessitatibus temporibus odit odio quas, nesciunt, eos cumque officiis suscipit neque voluptatibus! Fugiat explicabo quaerat nisi culpa eum maiores, debitis quisquam repellat quo odit ex cupiditate tenetur non quas maxime possimus esse voluptas excepturi unde illo reprehenderit et itaque praesentium ea. Consectetur quod labore in similique nobis voluptatibus praesentium odit error ut dolor?",
+    "isFeatured": true
+  }
+]
