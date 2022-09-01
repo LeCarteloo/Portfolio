@@ -1,8 +1,9 @@
 import "../../styles/projectPage.scss";
 import { FaReact, FaSass } from "react-icons/fa";
 import { SiPostman } from "react-icons/si";
+import TeamItem from "./TeamItem";
 
-const ProjectPage = () => {
+const ProjectPage = ({ theme }) => {
   return (
     <main className="main showcase">
       <section>
@@ -56,6 +57,11 @@ const ProjectPage = () => {
           ratione. Doloremque dolores hic aspernatur adipisci odio, quia quos
           nam ducimus accusantium molestias!
         </p>
+        <div className="showcase__team">
+          <TeamItem />
+          <TeamItem />
+          <TeamItem />
+        </div>
       </section>
     </main>
   );
