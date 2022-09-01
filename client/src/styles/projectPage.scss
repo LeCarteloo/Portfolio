@@ -60,6 +60,10 @@
   margin: 1em 0;
   transition: ease-in-out 0.2s;
 
+  &--me {
+    border: 1px solid #5483d8;
+  }
+
   &:hover {
     transform: scale(1.05);
   }
@@ -80,14 +84,17 @@
     color: global.$font-color;
     th {
       text-align: left;
-      font-size: global.$fs-sm;
+      margin-right: 3em;
+      font-size: clamp(10px, 3vw, global.$fs-sm);
       opacity: 0.6;
       font-weight: 400;
-      // min-width: 140px;
+      min-width: 200px;
+      @media (max-width: 756px) {
+        min-width: 120px;
+      }
     }
     td {
-      font-size: global.$fs-h2;
-      padding-right: 3em;
+      font-size: clamp(20px, 3vw, global.$fs-h2);
     }
   }
 

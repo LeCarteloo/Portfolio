@@ -2,8 +2,31 @@ import "../../styles/projectPage.scss";
 import { FaReact, FaSass } from "react-icons/fa";
 import { SiPostman } from "react-icons/si";
 import TeamItem from "./TeamItem";
+import { useEffect } from "react";
+import { useState } from "react";
 
-const ProjectPage = ({ theme }) => {
+const ProjectPage = ({ theme, repoName }) => {
+  const [team, setTeam] = useState([]);
+  // repoName = "FlowFreeWeb";
+  repoName = "TransportCompany";
+
+  // https://api.github.com/users/LeCarteloo
+
+  useEffect(() => {
+    const getContributors = async () => {
+      const response = await fetch(
+        `https://api.github.com/repos/LeCarteloo/${repoName}/stats/contributors`
+      );
+      const data = await response.json();
+      const sortedData = await data.sort((a, b) =>
+        a.total < b.total ? 1 : -1
+      );
+      setTeam(sortedData);
+    };
+
+    getContributors();
+  }, []);
+
   return (
     <main className="main showcase">
       <section>
@@ -58,9 +81,9 @@ const ProjectPage = ({ theme }) => {
           nam ducimus accusantium molestias!
         </p>
         <div className="showcase__team">
-          <TeamItem />
-          <TeamItem />
-          <TeamItem />
+          {team.map((member) => (
+            <TeamItem member={member} />
+          ))}
         </div>
       </section>
     </main>
