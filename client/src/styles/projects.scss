@@ -8,11 +8,6 @@
   border-radius: global.$border-radius;
   transition: ease-in-out 0.2s;
 
-  &:hover,
-  &:focus-within {
-    transform: scale(1.02);
-  }
-
   &__photo {
     border-radius: global.$border-radius;
     width: 100%;
@@ -59,24 +54,46 @@
   padding: 2em;
   border-radius: global.$border-radius;
   background-color: global.$secondary;
+  transition: ease-in-out 0.2s;
+
+  &:hover,
+  &:focus-within {
+    transform: scale(1.02);
+  }
+
+  &__icon {
+    margin-left: -5px;
+    color: global.$font-color;
+    font-size: 45px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   &__links {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 1em;
+  }
 
-    &__link {
-      color: global.$font-color;
-      font-size: global.$fs-xxl;
-      &:hover {
-        transform: scale(1.2);
-      }
+  &__link {
+    color: global.$font-color;
+    font-size: global.$fs-xxl;
+    transition: ease-in-out 0.2s;
+
+    &:hover,
+    &:focus-within {
+      transform: scale(1.2);
     }
   }
 
   &__desc {
     margin: 1em 0 1em 0;
   }
+
   &__stack {
     color: global.$font-color;
     opacity: 0.6;

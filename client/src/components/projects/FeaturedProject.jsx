@@ -25,7 +25,8 @@ const FeaturedProject = ({ project }) => {
           </div>
           <p className="fproject__desc">{project.desc}</p>
           <p className="fproject__stack">
-            {project.technologies.map((tech) => tech.name + " ")}
+            {project.technologies.map((tech) => tech.name + " ")} {" | "}
+            {project.tools.map((tool) => tool.name + " ")}
           </p>
         </figcaption>
       </Link>

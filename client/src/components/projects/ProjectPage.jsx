@@ -2,7 +2,7 @@ import "../../styles/projectPage.scss";
 import TeamItem from "./TeamItem";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import ProjectsJSON from "../../db/projects.json";
+import projects from "../../db/projects.json";
 import SectionTitle from "./SectionTitle";
 
 const ProjectPage = () => {
@@ -10,9 +10,7 @@ const ProjectPage = () => {
   const params = useParams();
 
   // Searching open project in local JSON db
-  const project = ProjectsJSON.find(
-    (elem) => elem._id.toString() === params.id
-  );
+  const project = projects.find((elem) => elem._id.toString() === params.id);
 
   useEffect(() => {
     const getContributors = async () => {
@@ -100,7 +98,7 @@ const ProjectPage = () => {
         </div>
       </section>
       <footer>
-        {ProjectsJSON.map((project) => (
+        {projects.map((project) => (
           <Link to={`/projects/${project._id}`}>
             <span>{project.name}</span>
           </Link>
