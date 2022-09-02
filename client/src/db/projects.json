@@ -146,5 +146,203 @@
     "content": "empty",
     "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptate velit eum quis nam iste nulla minima necessitatibus temporibus odit odio quas, nesciunt, eos cumque officiis suscipit neque voluptatibus! Fugiat explicabo quaerat nisi culpa eum maiores, debitis quisquam repellat quo odit ex cupiditate tenetur non quas maxime possimus esse voluptas excepturi unde illo reprehenderit et itaque praesentium ea. Consectetur quod labore in similique nobis voluptatibus praesentium odit error ut dolor?",
     "isFeatured": true
+  },
+  {
+    "_id": 4,
+    "name": "Invoicing Module",
+    "repoName": "InvoicingModule",
+    "links": {
+      "repo": "https://github.com/LeCarteloo/InvoicingModule"
+    },
+    "technologies": [
+      {
+        "name": "PHP",
+        "icon": "php"
+      },
+      {
+        "name": "MySQL",
+        "icon": "mysql"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "javascript"
+      },
+      {
+        "name": "CSS",
+        "icon": "css"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Git",
+        "icon": "git"
+      },
+      {
+        "name": "Xampp",
+        "icon": "xampp"
+      }
+    ],
+    "team": "3",
+    "colors": ["#4caf50", "#302c3c", "#121212"],
+    "content": "empty",
+    "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla dolores, nemo quam sed similique eaque nam aliquid!",
+    "isFeatured": false
+  },
+  {
+    "_id": 5,
+    "name": "Bank Application",
+    "repoName": "BankApplication",
+    "links": {
+      "repo": "https://github.com/LeCarteloo/BankApplication"
+    },
+    "technologies": [
+      {
+        "name": "PHP",
+        "icon": "php"
+      },
+      {
+        "name": "Java",
+        "icon": "java"
+      },
+      {
+        "name": "MySQL",
+        "icon": "mysql"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "javascript"
+      },
+      {
+        "name": "CSS",
+        "icon": "css"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Git",
+        "icon": "git"
+      },
+      {
+        "name": "Xampp",
+        "icon": "xampp"
+      }
+    ],
+    "team": "5",
+    "colors": ["#4caf50", "#302c3c", "#121212"],
+    "content": "empty",
+    "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla dolores, nemo quam sed similique eaque nam aliquid!",
+    "isFeatured": false
+  },
+  {
+    "_id": 6,
+    "name": "Package App",
+    "repoName": "PackageApp",
+    "links": {
+      "repo": "https://github.com/LeCarteloo/PackageApp"
+    },
+    "technologies": [
+      {
+        "name": "Java",
+        "icon": "java"
+      },
+      {
+        "name": "PLSQL",
+        "icon": "sql"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Oracle",
+        "icon": "oracle"
+      }
+    ],
+    "team": "1",
+    "colors": ["#4caf50", "#302c3c", "#121212"],
+    "content": "empty",
+    "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla dolores, nemo quam sed similique eaque nam aliquid!",
+    "isFeatured": false
+  },
+  {
+    "_id": 7,
+    "name": "Deserted Island",
+    "repoName": "DesertedIsland",
+    "links": {
+      "repo": "https://github.com/LeCarteloo/DesertedIsland"
+    },
+    "technologies": [
+      {
+        "name": "C#",
+        "icon": "csharp"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Unity",
+        "icon": "unity"
+      }
+    ],
+    "team": "3",
+    "colors": ["#4caf50", "#302c3c", "#121212"],
+    "content": "empty",
+    "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla dolores, nemo quam sed similique eaque nam aliquid!",
+    "isFeatured": false
+  },
+  {
+    "_id": 8,
+    "name": "Restaurant Web App",
+    "repoName": "RestaurantWeb",
+    "links": {
+      "repo": "https://github.com/LeCarteloo/RestaurantWeb"
+    },
+    "technologies": [
+      {
+        "name": "JavaScript",
+        "icon": "javascript"
+      },
+      {
+        "name": "CSS",
+        "icon": "css"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Git",
+        "icon": "git"
+      }
+    ],
+    "team": "1",
+    "colors": ["#4caf50", "#302c3c", "#121212"],
+    "content": "empty",
+    "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla dolores, nemo quam sed similique eaque nam aliquid!",
+    "isFeatured": false
+  },
+  {
+    "_id": 9,
+    "name": "Training Mobile App",
+    "repoName": "AplikacjaTreningowa",
+    "links": {
+      "repo": "https://github.com/LeCarteloo/AplikacjaTreningowa"
+    },
+    "technologies": [
+      {
+        "name": "Java",
+        "icon": "java"
+      },
+      {
+        "name": "Android",
+        "icon": "android"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Git",
+        "icon": "git"
+      }
+    ],
+    "team": "1",
+    "colors": ["#4caf50", "#302c3c", "#121212"],
+    "content": "empty",
+    "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla dolores, nemo quam sed similique eaque nam aliquid!",
+    "isFeatured": false
   }
 ]

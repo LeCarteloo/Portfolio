@@ -37,7 +37,12 @@ const Main = () => {
     },
   ];
 
-  console.log(projects);
+  const featuredProjects = projects.filter(
+    (project) => project.isFeatured === true
+  );
+  const otherProjects = projects.filter(
+    (project) => project.isFeatured === false
+  );
 
   const work = [
     {
@@ -73,22 +78,19 @@ const Main = () => {
         <div className="projects">
           <h2 className="projects__subtitle">FEATURED PROJECTS</h2>
           <div className="projects__featured">
-            {projects.map((project) => (
+            {featuredProjects.map((project) => (
               <FeaturedProject key={project._id} project={project} />
             ))}
           </div>
           <h2 className="projects__subtitle">OTHER PROJECTS</h2>
           <div className="projects__other">
-            <Project />
-            <Project />
-            <Project />
-            <Project />
-            <Project />
-            <Project />
+            {otherProjects.map((project) => (
+              <Project key={project._id} project={project} />
+            ))}
           </div>
-          <div className="more">
+          {/* <div className="more">
             <button className="more__button">SHOW MORE</button>
-          </div>
+          </div> */}
         </div>
       </section>
       <AboutMe experience={work} education={education} />
@@ -109,18 +111,24 @@ const Main = () => {
               <a
                 href="https://www.facebook.com/filip.papiernik.3"
                 className="contact__item contact__item--facebook"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaFacebookSquare />
               </a>
               <a
                 href="https://github.com/LeCarteloo"
                 className="contact__item contact__item--github"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaGithub />
               </a>
               <a
                 href="https://www.linkedin.com/in/filip-papiernik-390444230/"
                 className="contact__item contact__item--linkedin"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaLinkedin />
               </a>
