@@ -10,6 +10,18 @@
     },
     "technologies": [
       {
+        "name": "JavaScript",
+        "icon": "javascript"
+      },
+      {
+        "name": "Node.js",
+        "icon": "node"
+      },
+      {
+        "name": "Express.js",
+        "icon": "express"
+      },
+      {
         "name": "React.js",
         "icon": "react"
       },
@@ -18,15 +30,7 @@
         "icon": "mongodb"
       },
       {
-        "name": "Node.js",
-        "icon": "node"
-      },
-      {
-        "name": "JavaScript",
-        "icon": "javascript"
-      },
-      {
-        "name": "Scss.js",
+        "name": "SCSS",
         "icon": "scss"
       }
     ],
@@ -38,8 +42,13 @@
       {
         "name": "Git",
         "icon": "git"
+      },
+      {
+        "name": "Nodemon",
+        "icon": "nodemon"
       }
     ],
+    "team": "1",
     "colors": ["#339fcd", "#1164aa", "#302c3c", "#2f3142", "#1c1c2c"],
     "content": "empty",
     "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptate velit eum quis nam iste nulla minima necessitatibus temporibus odit odio quas, nesciunt, eos cumque officiis suscipit neque voluptatibus! Fugiat explicabo quaerat nisi culpa eum maiores, debitis quisquam repellat quo odit ex cupiditate tenetur non quas maxime possimus esse voluptas excepturi unde illo reprehenderit et itaque praesentium ea. Consectetur quod labore in similique nobis voluptatibus praesentium odit error ut dolor?",
@@ -55,12 +64,12 @@
     },
     "technologies": [
       {
-        "name": "MySQL",
-        "icon": "mysql"
-      },
-      {
         "name": "Java",
         "icon": "java"
+      },
+      {
+        "name": "MySQL",
+        "icon": "mysql"
       },
       {
         "name": "Hibernate",
@@ -77,6 +86,8 @@
         "icon": "git"
       }
     ],
+    "team": "5",
+    "time": "2M",
     "colors": ["#ffa500", "#d82020", "#302c3c", "#121212", "#ffffff"],
     "content": "empty",
     "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptate velit eum quis nam iste nulla minima necessitatibus temporibus odit odio quas, nesciunt, eos cumque officiis suscipit neque voluptatibus! Fugiat explicabo quaerat nisi culpa eum maiores, debitis quisquam repellat quo odit ex cupiditate tenetur non quas maxime possimus esse voluptas excepturi unde illo reprehenderit et itaque praesentium ea. Consectetur quod labore in similique nobis voluptatibus praesentium odit error ut dolor?",
@@ -108,12 +119,12 @@
         "icon": "lodash"
       },
       {
-        "name": "CSS",
-        "icon": "css"
-      },
-      {
         "name": "Socket.io",
         "icon": "socketio"
+      },
+      {
+        "name": "CSS",
+        "icon": "css"
       },
       {
         "name": "Jest.js",
@@ -130,6 +141,7 @@
         "icon": "nodemon"
       }
     ],
+    "team": "1",
     "colors": ["#4caf50", "#302c3c", "#121212"],
     "content": "empty",
     "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptate velit eum quis nam iste nulla minima necessitatibus temporibus odit odio quas, nesciunt, eos cumque officiis suscipit neque voluptatibus! Fugiat explicabo quaerat nisi culpa eum maiores, debitis quisquam repellat quo odit ex cupiditate tenetur non quas maxime possimus esse voluptas excepturi unde illo reprehenderit et itaque praesentium ea. Consectetur quod labore in similique nobis voluptatibus praesentium odit error ut dolor?",

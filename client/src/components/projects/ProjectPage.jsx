@@ -1,9 +1,7 @@
 import "../../styles/projectPage.scss";
-import { FaReact, FaSass } from "react-icons/fa";
-import { SiPostman } from "react-icons/si";
 import TeamItem from "./TeamItem";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ProjectsJSON from "../../db/projects.json";
 import SectionTitle from "./SectionTitle";
 
@@ -29,7 +27,7 @@ const ProjectPage = () => {
     };
 
     getContributors();
-  }, []);
+  }, [params.id]);
 
   return (
     <main className="main showcase">
@@ -101,6 +99,13 @@ const ProjectPage = () => {
           ))}
         </div>
       </section>
+      <footer>
+        {ProjectsJSON.map((project) => (
+          <Link to={`/projects/${project._id}`}>
+            <span>{project.name}</span>
+          </Link>
+        ))}
+      </footer>
     </main>
   );
 };

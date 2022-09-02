@@ -1,4 +1,5 @@
 @use "_global" as global;
+@use "_anim" as anim;
 
 .showcase {
   section {
@@ -47,6 +48,18 @@
   }
   &__team {
     width: 100%;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 2em;
+    span {
+      opacity: 0.6;
+      @include anim.underline;
+    }
   }
 }
 
