@@ -8,6 +8,11 @@
   border-radius: global.$border-radius;
   transition: ease-in-out 0.2s;
 
+  &:hover,
+  &:focus-within {
+    transform: scale(1.02);
+  }
+
   &__photo {
     border-radius: global.$border-radius;
     width: 100%;
@@ -23,7 +28,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 0.5em;
   }
 
   &__info {
@@ -41,7 +45,19 @@
   }
 
   &__desc {
-    margin-bottom: 0.5em;
+    margin: 0.6em 0;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    &::after {
+      content: "...";
+      padding-left: 3px;
+      position: absolute;
+      width: 50px;
+      bottom: 0;
+      right: 0;
+      background-color: global.$primary;
+    }
   }
 
   &__stack {

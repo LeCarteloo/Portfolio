@@ -4,8 +4,8 @@ import { BiUser } from "react-icons/bi";
 
 const FeaturedProject = ({ project }) => {
   return (
-    <figure className="fproject">
-      <Link to={`projects/${project._id}`} state={project}>
+    <Link to={`projects/${project._id}`}>
+      <figure className="fproject">
         <img className="fproject__photo" src={project.photo} />
         <figcaption>
           <div className="fproject__title">
@@ -29,8 +29,8 @@ const FeaturedProject = ({ project }) => {
             {project.tools.map((tool) => tool.name + " ")}
           </p>
         </figcaption>
-      </Link>
-    </figure>
+      </figure>
+    </Link>
   );
 };
 

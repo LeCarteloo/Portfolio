@@ -1,13 +1,18 @@
 import "../../styles/projectPage.scss";
 import TeamItem from "./TeamItem";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import projects from "../../db/projects.json";
 import SectionTitle from "./SectionTitle";
+import { useRef } from "react";
 
 const ProjectPage = () => {
   const [team, setTeam] = useState([]);
+  const ref = useRef();
+  const refContent = useRef();
   const params = useParams();
+
+  projects = projects.filter((project) => project.isFeatured === true);
 
   // Searching open project in local JSON db
   const project = projects.find((elem) => elem._id.toString() === params.id);
@@ -24,25 +29,40 @@ const ProjectPage = () => {
       setTeam(data);
     };
 
+    ref.current.innerHTML = project.desc;
+    refContent.current.innerHTML = project.content;
     getContributors();
   }, [params.id]);
 
   return (
-    <main className="main showcase">
+    <main
+      className="main showcase"
+      style={{
+        "--color": project.colors[0] + "CC",
+      }}
+    >
       <section>
-        <SectionTitle title="THE PROJECT" color={project.colors[0]} />
-        <p>{project.desc}</p>
+        <img
+          className="showcase__banner"
+          src={project.photo}
+          alt="project-banner"
+        />
+        <h2 className="showcase__title">THE PROJECT</h2>
+        <div ref={ref} className="showcase__desc"></div>
         <div className="showcase__info">
           <div className="showcase__group">
             <h4>Used technologies:</h4>
             <div className="showcase__content">
               {project.technologies.map((tech) => (
-                <img
-                  key={tech.icon}
-                  width="70px"
-                  height="70px"
-                  src={`/icons/${tech.icon}.svg`}
-                />
+                <svg key={tech.icon} width="70px" height="70px">
+                  <image
+                    href={`/icons/${tech.icon}.svg`}
+                    width="70px"
+                    height="70px"
+                  >
+                    <title>{tech.name}</title>
+                  </image>
+                </svg>
               ))}
             </div>
           </div>
@@ -50,12 +70,15 @@ const ProjectPage = () => {
             <h4>Used tools:</h4>
             <div className="showcase__content">
               {project.tools.map((tool) => (
-                <img
-                  key={tool.icon}
-                  width="70px"
-                  height="70px"
-                  src={`/icons/${tool.icon}.svg`}
-                />
+                <svg key={tool.icon} width="70px" height="70px">
+                  <image
+                    href={`/icons/${tool.icon}.svg`}
+                    width="70px"
+                    height="70px"
+                  >
+                    <title>{tool.name}</title>
+                  </image>
+                </svg>
               ))}
             </div>
           </div>
@@ -80,13 +103,7 @@ const ProjectPage = () => {
         </div>
       </section>
       <section>
-        <SectionTitle title="TEAM" color={project.colors[0]} />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non quos,
-          repellendus deleniti perferendis dolor nisi? Delectus, consequatur
-          ratione. Doloremque dolores hic aspernatur adipisci odio, quia quos
-          nam ducimus accusantium molestias!
-        </p>
+        <h2 className="showcase__title">TEAM</h2>
         <div className="showcase__team">
           {team.map((member, i) => (
             <TeamItem
@@ -97,6 +114,7 @@ const ProjectPage = () => {
           ))}
         </div>
       </section>
+      <div ref={refContent} className="showcase__desc"></div>
       <footer>
         {projects.map((project) => (
           <Link to={`/projects/${project._id}`}>
