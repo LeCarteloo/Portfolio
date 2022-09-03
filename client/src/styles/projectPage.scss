@@ -2,19 +2,22 @@
 @use "_anim" as anim;
 
 .showcase {
+  b,
+  u,
+  i {
+    color: var(--color);
+  }
+
   p {
     text-align: justify;
-    b,
-    u,
-    i {
-      color: var(--color);
-    }
+    text-indent: 30px;
   }
 
   ul {
     color: global.$font-color;
     width: 100%;
     list-style-type: " - ";
+    margin-top: 1em;
     li {
       margin-left: 12px;
       margin-bottom: 1em;
@@ -34,6 +37,7 @@
   }
 
   section {
+    width: 100%;
     &:first-child {
       padding-top: 100px;
       @media (max-width: 480px) {
@@ -98,11 +102,14 @@
     width: 100%;
   }
   &__img {
-    width: calc(100% - 4px);
+    width: 70%;
     height: auto;
     border-radius: global.$border-radius;
-    border: 2px solid global.$font-color;
-    margin: 1em 0;
+    border: 1.5px solid global.$font-color;
+    margin: 1em auto;
+    @media (max-width: 756px) {
+      width: calc(100% - 3px);
+    }
   }
   footer {
     display: flex;
