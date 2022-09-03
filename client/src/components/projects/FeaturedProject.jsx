@@ -23,7 +23,10 @@ const FeaturedProject = ({ project }) => {
               )}
             </div>
           </div>
-          <p className="fproject__desc">{project.desc}</p>
+          <p
+            className="fproject__desc"
+            dangerouslySetInnerHTML={{ __html: project.desc }}
+          ></p>
           <p className="fproject__stack">
             {project.technologies.map((tech) => tech.name + " ")} {" | "}
             {project.tools.map((tool) => tool.name + " ")}

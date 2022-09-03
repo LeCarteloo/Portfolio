@@ -47,6 +47,13 @@ const ProjectPage = () => {
           src={project.photo}
           alt="project-banner"
         />
+        {project.note && (
+          <div className="showcase__note">
+            <span>*Note:</span>
+            <span>{` ${project.note}`}</span>
+          </div>
+        )}
+
         <h2 className="showcase__title">THE PROJECT</h2>
         <div ref={ref} className="showcase__desc"></div>
         <div className="showcase__info">

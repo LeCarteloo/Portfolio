@@ -56,6 +56,23 @@
     margin-bottom: 2em;
     border-radius: global.$border-radius;
   }
+  &__note {
+    background-color: global.$secondary;
+    width: auto;
+    padding: 1.5em;
+    width: calc(100% - 3em);
+    margin-bottom: 2em;
+    border-radius: global.$border-radius;
+    // border: 1px solid var(--color);
+    border: 1px solid #fff;
+
+    span {
+      color: global.$font-color;
+      &:first-child {
+        color: var(--color);
+      }
+    }
+  }
   &__title {
     padding: 0.16em;
     background-color: var(--color);
