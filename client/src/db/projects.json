@@ -49,9 +49,10 @@
       }
     ],
     "team": "1",
+    "note": "This project is still under development. Currently missing features: password reminder, ability to register user, lecturer panel, articles, graduation... / 03.09.2022",
     "colors": ["#339fcd", "#1164aa", "#302c3c", "#2f3142", "#1c1c2c"],
     "content": "",
-    "desc": "",
+    "desc": "<p> <b>Virtual University</b> is an application where students can see their Universty course, grades, schedule This project started as a <i>frontend</i> exercise but pretty quickly evolved into <i>full stack</i> application. Initially the app was supposed to be build with <b>React.js</b>, <b>MySQL</b> and <b>Node.js</b> but after finding out that <i>MERN</i> stack is very popular, i went with it. </p>",
     "isFeatured": true
   },
   {
@@ -165,8 +166,8 @@
         "icon": "mysql"
       },
       {
-        "name": "JavaScript",
-        "icon": "javascript"
+        "name": "Ajax",
+        "icon": "ajax"
       },
       {
         "name": "CSS",
@@ -190,7 +191,7 @@
     "team": "3",
     "colors": ["#4caf50", "#302c3c", "#121212"],
     "content": "empty",
-    "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla dolores, nemo quam sed similique eaque nam aliquid!",
+    "desc": "Web application created with PHP, HTML5, CSS and a little bit of AJAX. The project consisted in creation of an invocing module which allow to print invoices through information from the API of other modules. (Each group had to create a different module and API which later was shared with the others). The information in the database comes from the API of other modules.",
     "isFeatured": false
   },
   {
