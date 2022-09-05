@@ -11,31 +11,10 @@ import "../styles/projects.scss";
 import AboutMe from "./sections/AboutMe";
 // JSON db
 import projects from "../db/projects.json";
+import users from "../db/users.json";
 
 const Main = () => {
-  // Timeline data
-  const education = [
-    {
-      _id: 1,
-      year: "2022-present",
-      name: "Master's Degree in Informatics",
-      place: "University of Rzeszów",
-    },
-    {
-      _id: 2,
-      year: "2018-2022",
-      name: "Engineer's Degree in Informatics",
-      desc: "Specialization in Web applications",
-      place: "University of Rzeszów",
-    },
-    {
-      _id: 3,
-      year: "2018-2022",
-      name: "Engineer's Degree in Informatics",
-      desc: "Specialization in Web applications",
-      place: "University of Rzeszów",
-    },
-  ];
+  const owner = users.find((user) => user.isOwner === true);
 
   const featuredProjects = projects.filter(
     (project) => project.isFeatured === true
@@ -43,23 +22,6 @@ const Main = () => {
   const otherProjects = projects.filter(
     (project) => project.isFeatured === false
   );
-
-  const work = [
-    {
-      _id: 1,
-      year: "2022-present",
-      name: "Company name",
-      position: "Junior Fullstack Developer",
-      taskList: ["UI Design", "DB Design", "REST API", "Validation"],
-    },
-    {
-      _id: 2,
-      year: "2022-present",
-      name: "Company name",
-      position: "Junior Fullstack Developer",
-      taskList: ["UI Design", "DB Design", "REST API", "Validation"],
-    },
-  ];
 
   return (
     <main>
@@ -93,7 +55,11 @@ const Main = () => {
           </div> */}
         </div>
       </section>
-      <AboutMe experience={work} education={education} />
+      <AboutMe
+        experience={owner.experience}
+        education={owner.education}
+        technologies={owner.technologies}
+      />
       <section id="contact" className="contact">
         <SectionHeader title="Contact" number="03" />
         <div className="contact__wrapper">
@@ -105,11 +71,11 @@ const Main = () => {
             </p>
             <div className="contact__email">
               <BsFillEnvelopeFill />
-              <h3>filippapiernik1999@gmail.com</h3>
+              <h3>{owner.email}</h3>
             </div>
             <div className="contact__social">
               <a
-                href="https://www.facebook.com/filip.papiernik.3"
+                href={owner.links.facebook}
                 className="contact__item contact__item--facebook"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -117,7 +83,7 @@ const Main = () => {
                 <FaFacebookSquare />
               </a>
               <a
-                href="https://github.com/LeCarteloo"
+                href={owner.links.github}
                 className="contact__item contact__item--github"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -125,7 +91,7 @@ const Main = () => {
                 <FaGithub />
               </a>
               <a
-                href="https://www.linkedin.com/in/filip-papiernik-390444230/"
+                href={owner.links.linkedin}
                 className="contact__item contact__item--linkedin"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -28,12 +28,16 @@ const Project = ({ project }) => {
           )}
         </div>
       </div>
-      <h2>{project.name}</h2>
-      <p className="project__desc">{project.desc}</p>
-      <span className="project__stack">
-        {project.technologies.map((tech) => tech.name + " ")} {" | "}
-        {project.tools.map((tool) => tool.name + " ")}
-      </span>
+      <div className="project__body">
+        <div>
+          <h2>{project.name}</h2>
+          <p className="project__desc">{project.desc}</p>
+        </div>
+        <span className="project__stack">
+          {project.technologies.map((tech) => tech.name + " ")} {" | "}
+          {project.tools.map((tool) => tool.name + " ")}
+        </span>
+      </div>
     </div>
   );
 };

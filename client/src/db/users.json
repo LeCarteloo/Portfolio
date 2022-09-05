@@ -1,0 +1,97 @@
+[
+  {
+    "name": "Filip",
+    "surname": "Papiernik",
+    "links": {
+      "github": "https://github.com/LeCarteloo",
+      "facebook": "https://www.facebook.com/filip.papiernik.3",
+      "linkedin": "https://www.linkedin.com/in/filip-papiernik-390444230/"
+    },
+    "email": "filippapiernik1999@gmail.com",
+    "education": [
+      {
+        "_id": 1,
+        "year": "2022-present",
+        "name": "Master's Degree in Informatics",
+        "desc": "",
+        "place": "University of Rzeszów"
+      },
+      {
+        "_id": 2,
+        "year": "2018-2022",
+        "name": "Engineer's Degree in Informatics",
+        "desc": "Specialization in Web applications",
+        "place": "University of Rzeszów"
+      }
+    ],
+    "technologies": [
+      {
+        "name": "Javascript",
+        "icon": "javascript",
+        "color": "#F0DB4F"
+      },
+      {
+        "name": "Node.js",
+        "icon": "node",
+        "color": "#3C873A"
+      },
+      {
+        "name": "React.js",
+        "icon": "react",
+        "color": "#61DBFB"
+      },
+      {
+        "name": "PHP",
+        "icon": "php",
+        "color": "#474A8A"
+      },
+      {
+        "name": "MongoDB",
+        "icon": "mongodb",
+        "color": "#4DB33D"
+      },
+      {
+        "name": "MySQL",
+        "icon": "mysql",
+        "color": "#00758F"
+      },
+      {
+        "name": "SCSS",
+        "icon": "scss",
+        "color": "#CD6799"
+      },
+      {
+        "name": "Java",
+        "icon": "java",
+        "color": "#ED1D25"
+      },
+      {
+        "name": "HTML",
+        "icon": "html",
+        "color": "#E34C26"
+      },
+      {
+        "name": "CSS",
+        "icon": "css",
+        "color": "#3C99DC"
+      },
+      {
+        "name": "C#",
+        "icon": "csharp",
+        "color": "#682876"
+      },
+      {
+        "name": "Git",
+        "icon": "git",
+        "color": "#F1502F"
+      },
+      {
+        "name": "Postman",
+        "icon": "postman",
+        "color": "#EF5B25"
+      }
+    ],
+    "experience": [],
+    "isOwner": true
+  }
+]

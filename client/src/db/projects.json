@@ -189,8 +189,6 @@
       }
     ],
     "team": "3",
-    "colors": ["#4caf50", "#302c3c", "#121212"],
-    "content": "empty",
     "desc": "Web application created with PHP, HTML5, CSS and a little bit of AJAX. The project consisted in creation of an invocing module which allow to print invoices through information from the API of other modules. (Each group had to create a different module and API which later was shared with the others). The information in the database comes from the API of other modules.",
     "isFeatured": false
   },
@@ -234,9 +232,7 @@
       }
     ],
     "team": "5",
-    "colors": ["#4caf50", "#302c3c", "#121212"],
-    "content": "empty",
-    "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla dolores, nemo quam sed similique eaque nam aliquid!",
+    "desc": "The goal of this project was to create a working system consisting of two banks (each developed with diffrent technologies) and clearing* system between two banks that allowed transfer operations (external transfers).",
     "isFeatured": false
   },
   {
@@ -263,9 +259,7 @@
       }
     ],
     "team": "1",
-    "colors": ["#4caf50", "#302c3c", "#121212"],
-    "content": "empty",
-    "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla dolores, nemo quam sed similique eaque nam aliquid!",
+    "desc": "The subject of the project is a application for transport company. It has been developed for both customers, employees and system administrators.",
     "isFeatured": false
   },
   {
@@ -288,9 +282,7 @@
       }
     ],
     "team": "3",
-    "colors": ["#4caf50", "#302c3c", "#121212"],
-    "content": "empty",
-    "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla dolores, nemo quam sed similique eaque nam aliquid!",
+    "desc": "Survival game taking place on an island made in Low-Poly style. Player needs to gather resources, craft tools, eat and drink in order to survive. Game has dynamic day and night cycle with dynamic weather.",
     "isFeatured": false
   },
   {
@@ -317,9 +309,7 @@
       }
     ],
     "team": "1",
-    "colors": ["#4caf50", "#302c3c", "#121212"],
-    "content": "empty",
-    "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla dolores, nemo quam sed similique eaque nam aliquid!",
+    "desc": "Simple restaurant website with three sections and a couple of animations. Created for personal exercise. ",
     "isFeatured": false
   },
   {
@@ -347,8 +337,7 @@
     ],
     "team": "1",
     "colors": ["#4caf50", "#302c3c", "#121212"],
-    "content": "empty",
-    "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla dolores, nemo quam sed similique eaque nam aliquid!",
+    "desc": "Simple android training app made in Java.",
     "isFeatured": false
   }
 ]

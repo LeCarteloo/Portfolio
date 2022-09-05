@@ -106,8 +106,16 @@
     }
   }
 
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 45px);
+  }
+
   &__desc {
     margin: 1em 0 1em 0;
+    text-align: justify;
   }
 
   &__stack {

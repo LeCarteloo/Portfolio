@@ -1,7 +1,6 @@
 import { useState } from "react";
 import SectionHeader from "../SectionHeader";
 import EducationItem from "../timeline/EducationItem";
-import JS from "../../assets/javascript.svg";
 import StackItem from "../stack/StackItem";
 import ExperienceItem from "../timeline/ExperienceItem";
 
@@ -68,26 +67,13 @@ const AboutMe = ({ education, experience, technologies }) => {
           <span>-TECHNOLOGIES</span>
         </div>
         <ul className="stack__list">
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
-          <StackItem name="JavaScript" color="#F0DB4F" img={JS} />
+          {technologies.map((tech) => (
+            <StackItem
+              name={tech.name}
+              color={tech.color}
+              img={`/icons/${tech.icon}.svg`}
+            />
+          ))}
         </ul>
       </div>
     </section>
