@@ -4,27 +4,28 @@ import {
   AiOutlineUser,
   AiOutlineArrowDown,
 } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const NavBarMobile = () => {
   return (
     <header className="navbar-m">
       <nav>
-        <a href="#" className="navbar-m__link">
+        <Link className="navbar-m__link" to="/">
           <AiOutlineHome size="25px" />
           HOME
-        </a>
-        <a href="#projects" className="navbar-m__link">
+        </Link>
+        <Link className="navbar-m__link" to="/#projects">
           <MdOutlineArticle size="25px" />
           PROJECTS
-        </a>
-        <a href="#about" className="navbar-m__link">
+        </Link>
+        <Link className="navbar-m__link" to="/#about">
           <AiOutlineUser size="25px" />
           ABOUT ME
-        </a>
-        <a href="#contact" className="navbar-m__link">
+        </Link>
+        <Link className="navbar-m__link" to="/#contact">
           <MdOutlineMessage size="25px" />
           CONTACT
-        </a>
+        </Link>
         <a href="#!" className="navbar-m__link">
           <AiOutlineArrowDown size="25px" />
           RESUME

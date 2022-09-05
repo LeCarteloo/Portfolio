@@ -11,7 +11,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/projects/:id" element={<ProjectPage />} />
+          <Route path="/projects/:name" element={<ProjectPage />} />
         </Routes>
         <NavBarMobile />
       </div>

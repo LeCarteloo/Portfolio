@@ -15,7 +15,9 @@ const ProjectPage = () => {
   projects = projects.filter((project) => project.isFeatured === true);
 
   // Searching open project in local JSON db
-  const project = projects.find((elem) => elem._id.toString() === params.id);
+  const project = projects.find(
+    (elem) => elem.repoName.toString() === params.name
+  );
 
   useEffect(() => {
     const getContributors = async () => {
@@ -46,6 +48,7 @@ const ProjectPage = () => {
           className="showcase__banner"
           src={project.photo}
           alt="project-banner"
+          loading="lazy"
         />
         {project.note && (
           <div className="showcase__note">
@@ -124,7 +127,7 @@ const ProjectPage = () => {
       <div ref={refContent} className="showcase__desc"></div>
       <footer>
         {projects.map((project) => (
-          <Link to={`/projects/${project._id}`}>
+          <Link key={project._id} to={`/projects/${project.repoName}`}>
             <span>{project.name}</span>
           </Link>
         ))}

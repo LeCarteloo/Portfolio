@@ -4,9 +4,9 @@ import { BiUser } from "react-icons/bi";
 
 const FeaturedProject = ({ project }) => {
   return (
-    <Link to={`projects/${project._id}`}>
+    <Link to={`projects/${project.repoName}`}>
       <figure className="fproject">
-        <img className="fproject__photo" src={project.photo} />
+        <img className="fproject__photo" src={project.photo} loading="lazy" />
         <figcaption>
           <div className="fproject__title">
             <h2>{project.name}</h2>
