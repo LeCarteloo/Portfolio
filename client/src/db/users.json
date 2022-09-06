@@ -41,6 +41,11 @@
         "color": "#61DBFB"
       },
       {
+        "name": "Express.js",
+        "icon": "express",
+        "color": "gray"
+      },
+      {
         "name": "PHP",
         "icon": "php",
         "color": "#474A8A"

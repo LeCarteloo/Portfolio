@@ -3,8 +3,8 @@ import TeamItem from "./TeamItem";
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import projects from "../../db/projects.json";
-import SectionTitle from "./SectionTitle";
 import { useRef } from "react";
+import { RiGitRepositoryLine, RiRecordCircleLine } from "react-icons/ri";
 
 const ProjectPage = () => {
   const [team, setTeam] = useState([]);
@@ -50,6 +50,34 @@ const ProjectPage = () => {
           alt="project-banner"
           loading="lazy"
         />
+        <div className="showcase__links">
+          <a
+            className={`showcase__link ${
+              !project.links.repo && "showcase__link--disabled"
+            }`}
+            tabIndex={!project.links.repo && -1}
+            aria-disabled={!project.links.repo}
+            href={project.links.repo ? project.links.repo : "!#"}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <RiGitRepositoryLine size="25px" />
+            REPOSITORY
+          </a>
+          <a
+            className={`showcase__link ${
+              !project.links.live && "showcase__link--disabled"
+            }`}
+            tabIndex={!project.links.live && -1}
+            aria-disabled={!project.links.live}
+            href={project.links.live ? project.links.live : "!#"}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <RiRecordCircleLine size="25px" />
+            LIVE
+          </a>
+        </div>
         {project.note && (
           <div className="showcase__note">
             <span>*Note:</span>

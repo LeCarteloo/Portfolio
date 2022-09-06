@@ -1,12 +1,58 @@
 [
   {
+    "_id": 0,
+    "name": "Portfolio",
+    "photo": "/images/vu/mockup.png",
+    "repoName": "Portfolio",
+    "links": {
+      "live": "#",
+      "repo": "#"
+    },
+    "technologies": [
+      {
+        "name": "JavaScript",
+        "icon": "javascript"
+      },
+      {
+        "name": "Node.js",
+        "icon": "node"
+      },
+      {
+        "name": "Express.js",
+        "icon": "express"
+      },
+      {
+        "name": "React.js",
+        "icon": "react"
+      },
+      {
+        "name": "SCSS",
+        "icon": "scss"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Git",
+        "icon": "git"
+      },
+      {
+        "name": "Nodemon",
+        "icon": "nodemon"
+      }
+    ],
+    "team": "1",
+    "colors": ["#FFFFF", "#101322", "#131e2d"],
+    "content": "",
+    "desc": "<p>Portfolio</p>",
+    "isFeatured": true
+  },
+  {
     "_id": 1,
     "name": "Virtual University",
     "photo": "/images/vu/mockup.png",
     "repoName": "VirtualUniversity",
     "links": {
-      "live": "#",
-      "repo": "#"
+      "repo": "https://github.com/LeCarteloo/VirtualUniversity"
     },
     "technologies": [
       {
@@ -90,7 +136,6 @@
     "team": "5",
     "time": "2M",
     "colors": ["#ffa500", "#d82020", "#302c3c", "#121212", "#ffffff"],
-    "content": "empty",
     "desc": "<p>The aim of this project was to create desktop application for <b>Transport Company</b>. It was designed to be used by <i>clients</i>, <i>workers</i>, <i>couriers</i> and <i>admins</i>. Creation process started from creating three <b>UML</b> diagrams (use case, activity and sequence). Application is written in Java with JavaFX library it also includes: MySQL database, ItextPDF, FontAwesome, JavaFXMail, ControlFX, Hibernate.</p>",
     "isFeatured": true
   },

@@ -69,6 +69,7 @@ const AboutMe = ({ education, experience, technologies }) => {
         <ul className="stack__list">
           {technologies.map((tech) => (
             <StackItem
+              key={tech.icon}
               name={tech.name}
               color={tech.color}
               img={`/icons/${tech.icon}.svg`}

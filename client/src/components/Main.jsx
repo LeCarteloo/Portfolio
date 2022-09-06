@@ -12,12 +12,13 @@ import AboutMe from "./sections/AboutMe";
 // JSON db
 import projects from "../db/projects.json";
 import users from "../db/users.json";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   const owner = users.find((user) => user.isOwner === true);
 
   const featuredProjects = projects.filter(
-    (project) => project.isFeatured === true
+    (project) => project.isFeatured === true && project._id !== 0
   );
   const otherProjects = projects.filter(
     (project) => project.isFeatured === false
@@ -124,7 +125,10 @@ const Main = () => {
           Designed and build by <b>Filip Papiernik</b>
         </p>
         <p>
-          See creation process of this website <u>here</u>
+          See creation process of this website
+          <Link to="/projects/Portfolio">
+            <u>here</u>
+          </Link>
         </p>
       </footer>
     </main>
