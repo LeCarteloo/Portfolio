@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import "../../styles/nav.scss";
 import { Link, useLocation } from "react-router-dom";
+import Logo from "../../assets/logo.svg";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(true);
   const [scrollPos, setScrollPos] = useState(0);
+  const location = useLocation();
 
   const openMenu = (state) => {
     setOpen(state);
@@ -45,8 +47,6 @@ const NavBar = () => {
     };
   }, [open === true]);
 
-  const location = useLocation();
-
   useEffect(() => {
     if (location.hash) {
       let elem = document.getElementById(location.hash.slice(1));
@@ -73,7 +73,9 @@ const NavBar = () => {
       <header className={`navbar ${show ? "navbar--show" : ""}`}>
         <nav className="navbar__nav">
           <div className="navbar__logo">
-            <a href="/">LOGO</a>
+            <a href="/#">
+              <img src={Logo} width="36px" height="36px" />
+            </a>
           </div>
           <div className="navbar__items">
             <div className="navbar__item">

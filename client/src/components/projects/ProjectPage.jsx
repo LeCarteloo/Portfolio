@@ -63,7 +63,7 @@ const ProjectPage = () => {
             className={`showcase__link ${
               !project?.links.repo && "showcase__link--disabled"
             }`}
-            tabIndex={!project?.links.repo && -1}
+            tabIndex={!project?.links.repo ? -1 : 0}
             aria-disabled={!project?.links.repo}
             href={project?.links.repo ? project?.links.repo : "!#"}
             target="_blank"
@@ -76,7 +76,7 @@ const ProjectPage = () => {
             className={`showcase__link ${
               !project?.links.live && "showcase__link--disabled"
             }`}
-            tabIndex={!project?.links.live && -1}
+            tabIndex={!project?.links.live ? -1 : 0}
             aria-disabled={!project?.links.live}
             href={project?.links.live ? project?.links.live : "!#"}
             target="_blank"

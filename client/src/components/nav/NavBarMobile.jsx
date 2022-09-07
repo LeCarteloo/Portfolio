@@ -1,17 +1,20 @@
 import { MdOutlineArticle, MdOutlineMessage } from "react-icons/md";
-import {
-  AiOutlineHome,
-  AiOutlineUser,
-  AiOutlineArrowDown,
-} from "react-icons/ai";
+import { AiOutlineUser, AiOutlineArrowDown } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/logo.svg";
 
 const NavBarMobile = () => {
   return (
     <header className="navbar-m">
       <nav>
         <Link className="navbar-m__link" to="/">
-          <AiOutlineHome size="25px" />
+          {/* <AiOutlineHome size="25px" /> */}
+          <img
+            src={Logo}
+            width="18.75px"
+            height="18.75px"
+            style={{ margin: "3.125px" }}
+          />
           HOME
         </Link>
         <Link className="navbar-m__link" to="/#projects">

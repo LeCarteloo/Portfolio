@@ -6,7 +6,7 @@ const FeaturedProject = ({ project }) => {
   return (
     <Link to={`projects/${project.repoName}`}>
       <figure className="fproject">
-        <img className="fproject__photo" src={project.photo} loading="lazy" />
+        <img className="fproject__photo" src={project.photo} />
         <figcaption>
           <div className="fproject__title">
             <h2>{project.name}</h2>
