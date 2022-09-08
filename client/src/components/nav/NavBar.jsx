@@ -73,8 +73,8 @@ const NavBar = () => {
       <header className={`navbar ${show ? "navbar--show" : ""}`}>
         <nav className="navbar__nav">
           <div className="navbar__logo">
-            <a href="/#">
-              <img src={Logo} width="36px" height="36px" />
+            <a href="/">
+              <img src={Logo} width="30px" height="30px" />
             </a>
           </div>
           <div className="navbar__items">

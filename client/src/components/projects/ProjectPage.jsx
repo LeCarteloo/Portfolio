@@ -39,8 +39,8 @@ const ProjectPage = () => {
       setTeam(data);
     };
 
-    refDesc.current.innerHTML = project?.desc;
-    refContent.current.innerHTML = project?.content;
+    refDesc.current.innerHTML = project.desc ? project.desc : "";
+    refContent.current.innerHTML = project.content ? project.content : "";
     getContributors();
   }, [params.name]);
 

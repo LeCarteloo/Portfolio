@@ -7,7 +7,7 @@ const NavBarMobile = () => {
   return (
     <header className="navbar-m">
       <nav>
-        <Link className="navbar-m__link" to="/">
+        <a className="navbar-m__link" to="/">
           {/* <AiOutlineHome size="25px" /> */}
           <img
             src={Logo}
@@ -16,7 +16,7 @@ const NavBarMobile = () => {
             style={{ margin: "3.125px" }}
           />
           HOME
-        </Link>
+        </a>
         <Link className="navbar-m__link" to="/#projects">
           <MdOutlineArticle size="25px" />
           PROJECTS

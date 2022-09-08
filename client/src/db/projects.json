@@ -145,7 +145,8 @@
     "photo": "/images/ff/mockup.png",
     "repoName": "FlowFreeWeb",
     "links": {
-      "repo": "https://github.com/LeCarteloo/FlowFreeWeb"
+      "repo": "https://github.com/LeCarteloo/FlowFreeWeb",
+      "live": "https://flow-free-multiplayer.herokuapp.com/"
     },
     "technologies": [
       {
