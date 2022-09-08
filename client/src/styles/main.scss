@@ -319,6 +319,7 @@ main {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    gap: 0.5em;
 
     @media (max-width: 756px) {
       flex-direction: column;
@@ -386,9 +387,13 @@ main {
       color: global.$font-color;
       font-size: global.$fs-xxl;
     }
+    span {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 1em;
+    }
     input,
     textarea {
-      margin-bottom: 1em;
       border: 1px solid global.$font-color;
       border-radius: global.$border-radius;
       width: calc(100% - 0.6em - 2px);
@@ -403,11 +408,15 @@ main {
     button {
       cursor: pointer;
       font-size: global.$fs-xxl;
-      padding: 0.6em;
-      width: 200px;
+      padding: 0.4em;
+      width: 180px;
       border: 1px solid global.$font-color;
       border-radius: global.$border-radius;
     }
+  }
+
+  &__error {
+    border: 1px solid red !important;
   }
 }
 
