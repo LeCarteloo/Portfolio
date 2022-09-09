@@ -138,6 +138,9 @@ main {
 .about {
   &__desc {
     font-size: global.$fs-xxl;
+    &:nth-child(2) {
+      margin-top: 0.5em;
+    }
   }
 }
 
