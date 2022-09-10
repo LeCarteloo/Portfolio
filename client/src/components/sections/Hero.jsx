@@ -4,7 +4,7 @@ const Hero = () => {
       <div className="welcome__text">
         <h3>Hi, my name is</h3>
         <h1>Filip Papiernik</h1>
-        <h2>I create web applications</h2>
+        <h2>Web developer</h2>
       </div>
       <a href="#projects" className="welcome__link">
         Check my projects

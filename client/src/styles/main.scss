@@ -134,10 +134,13 @@ main {
   }
 }
 
-// 02. About me
 .about {
   &__desc {
+    text-align: justify;
     font-size: global.$fs-xxl;
+    &:nth-child(2) {
+      margin-top: 1em;
+    }
   }
 }
 
@@ -350,7 +353,7 @@ main {
   }
 
   &__social {
-    margin-top: 6.5em;
+    margin-top: 1em;
     display: flex;
     gap: 1em;
     justify-content: center;
