@@ -434,4 +434,32 @@ footer {
   p {
     font-size: 15px;
   }
+  u {
+    font-size: 15px;
+    display: inline;
+  }
+}
+
+.not-found {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  &__img {
+    width: 50%;
+    height: auto;
+  }
+  &__buttons {
+    margin-top: 1em;
+    display: flex;
+    gap: 2em;
+  }
+  &__link {
+    padding: 0.7em;
+    border-radius: global.$border-radius;
+    border: 1px solid global.$font-color;
+    &--filled {
+      background-color: global.$font-color;
+      color: global.$primary;
+    }
+  }
 }

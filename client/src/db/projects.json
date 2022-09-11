@@ -1,52 +1,5 @@
 [
   {
-    "_id": 0,
-    "name": "Portfolio",
-    "photo": "/images/vu/mockup.png",
-    "repoName": "Portfolio",
-    "links": {
-      "live": "#",
-      "repo": "#"
-    },
-    "technologies": [
-      {
-        "name": "JavaScript",
-        "icon": "javascript"
-      },
-      {
-        "name": "Node.js",
-        "icon": "node"
-      },
-      {
-        "name": "Express.js",
-        "icon": "express"
-      },
-      {
-        "name": "React.js",
-        "icon": "react"
-      },
-      {
-        "name": "SCSS",
-        "icon": "scss"
-      }
-    ],
-    "tools": [
-      {
-        "name": "Git",
-        "icon": "git"
-      },
-      {
-        "name": "Nodemon",
-        "icon": "nodemon"
-      }
-    ],
-    "team": "1",
-    "colors": ["#FFFFF", "#101322", "#131e2d"],
-    "content": "",
-    "desc": "<p>Portfolio</p>",
-    "isFeatured": true
-  },
-  {
     "_id": 1,
     "name": "Virtual University",
     "photo": "/images/vu/mockup.png",
@@ -137,7 +90,7 @@
     "time": "2M",
     "colors": ["#ffa500", "#d82020", "#302c3c", "#121212", "#ffffff"],
     "desc": "<p>The aim of this project was to create desktop application to manage transport company <b>OutBox</b>. Its task is to handle <i>customers</i>, <i>couriers</i>, <i>managers</i> and <i>administrators</i>. Users can send, track their packages and view shipment history. Couriers have the ability to see what packages they need to delivery and also they can change their status. Managers have an overview of packages from their area, can generate PDF raports and charts and also they manage couriers. The administrator is the <i>highest-ranking</i> user. He has ability to manage all users, edit properites of shipment. He can generate PDF raports from whole company.</p>",
-    "content": "<section> <h2 class='showcase__title'>USER INTERFACE</h2> <p> Although the application is not yet finished, there is a couple of screenshots from working app (the first one is from admin panel and the rest from the student views): </p> <img class='showcase__img' loading='lazy' src='/images/ob/admin.png' /> <img class='showcase__img' loading='lazy' src='/images/ob/pdf.png' /> <img class='showcase__img' loading='lazy' src='/images/ob/register.png' /> <img class='showcase__img' loading='lazy' src='/images/ob/settings.png' /> <img class='showcase__img' loading='lazy' src='/images/ob/track.png' /> </section> <section> <h2 class='showcase__title'>MISSING FEATURES</h2> <p> Below there is a list of <u>missing</u> features. All features will be implemented in near future. </p> <ul> <li>Articles</li> <li>Lecturer views</li> <li>Graduation routes and views</li> <li>Admin routes for user management</li> <li>Route role validation</li> <li>Server validation for incoming data</li> <li>Full multi-language support (English and Polish)</li> <li>Full screen readers support</li> <li>Light mode</li> <li>*Notifications</li> <li>*Files upload</li> </ul> <p>*Subject to change</p> </section> ",
+    "content": "<section> <h2 class='showcase__title'>USER INTERFACE</h2> <img class='showcase__img' loading='lazy' src='/images/ob/track.png' /> <p> Track package view allows to user to view all active packages. The view includes two main button that allow to sort. Each 'block' with a shipment contains two buttons: The first allows you to view all the information about a package, second one displays all the statuses of selected package along with time frames. </p> <img class='showcase__img' loading='lazy' src='/images/ob/register.png' /> <p> Package registration view allows user to register parcel. At the very beginning user need to select type of package, then fill information about the recipent and at the end submit form. </p> <img class='showcase__img' loading='lazy' src='/images/ob/settings.png' /> <p> In application settings user can choose language between English or Polish and also choose theme of the application (Orange, White or Red). User can also change his personal information, change password or permanently delete account. </p> <img class='showcase__img' loading='lazy' src='/images/ob/admin.png' /> <p> As an admin, it is possible to add and edit areas where transport company will be operating. </p> <img class='showcase__img' loading='lazy' src='/images/ob/pdf.png' /> <p> This view is used to generate PDF raports about packages as manager. User can choose between pre-made data ranges or provide his own data range. User can provide name of file but it is not needed. </p> </section> <section> <h2 class='showcase__title'>DATABASE</h2> <img class='showcase__img' loading='lazy' src='/images/ob/db.png' /> </section> ",
     "isFeatured": true
   },
   {

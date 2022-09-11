@@ -38,12 +38,6 @@ const Main = () => {
         <p>
           Designed and build by <b>Filip Papiernik</b>
         </p>
-        <p>
-          See creation process of this website
-          <Link to="/projects/Portfolio">
-            <u>here</u>
-          </Link>
-        </p>
       </footer>
     </main>
   );
