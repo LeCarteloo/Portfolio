@@ -1,0 +1,215 @@
+@use "./global" as global;
+@use "./anim" as anim;
+
+.navbar {
+  $root: &;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background-color: rgba($color: global.$primary, $alpha: 0.8);
+  transition: ease-in-out 0.3s;
+  top: -150px;
+  box-shadow: 1px 1px 10px 1px rgba($color: global.$primary, $alpha: 0.8);
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+
+  &--show {
+    top: 0;
+  }
+
+  /* If browser supports backdrop blur */
+  @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    backdrop-filter: blur(10px);
+  }
+
+  &__nav {
+    display: flex;
+    color: global.$font-color;
+    padding: 20px 50px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__items {
+    display: flex;
+    gap: 2em;
+
+    @media (max-width: 756px) {
+      display: none;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include anim.underline;
+
+    span {
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      font-size: 40px;
+      color: global.$primary;
+      text-shadow: -1px -1px 0 global.$font-color, 1px -1px 0 global.$font-color,
+        -1px 1px 0 global.$font-color, 1px 1px 0 global.$font-color;
+      opacity: 0.18;
+    }
+    a {
+      text-decoration: none;
+      color: global.$font-color;
+      font-size: global.$fs-xxl;
+    }
+  }
+
+  &__resume {
+    font-size: global.$fs-lg;
+    padding: 0.5em;
+    border: 1px solid global.$font-color;
+    border-radius: global.$border-radius;
+    transition: ease-in-out 0.2s;
+  }
+
+  &__hamburger {
+    display: none;
+
+    &--open {
+      #{$root}__line {
+        &:nth-child(1) {
+          width: 25px;
+          transform: rotate(405deg) translate(5px, 5px);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        &:nth-child(3) {
+          transform: rotate(315deg) translate(5px, -5px);
+        }
+      }
+    }
+
+    &:hover,
+    &:focus-within {
+      background-color: transparent;
+      #{$root}__line {
+        width: 25px;
+      }
+    }
+
+    @media (max-width: 756px) {
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
+    }
+  }
+
+  &__line {
+    width: 25px;
+    height: 2px;
+    background-color: global.$font-color;
+    transition: ease-in-out 0.3s;
+
+    &:first-child {
+      width: 20px;
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+  transition: ease-in-out 0.3s;
+  background-color: rgba($color: global.$primary, $alpha: 0.8);
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+
+  @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    backdrop-filter: blur(10px);
+  }
+
+  &--open {
+    transform: translateY(0);
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    font-size: 70px;
+    line-height: 70px;
+    opacity: 0;
+    transition: ease 0.3s;
+    color: global.$primary;
+    text-shadow: -1px -1px 0 global.$font-color, 1px -1px 0 global.$font-color,
+      -1px 1px 0 global.$font-color, 1px 1px 0 global.$font-color;
+  }
+
+  &--open {
+    a {
+      opacity: 1;
+      @include anim.underline;
+      &:hover {
+        line-height: 150px;
+      }
+    }
+  }
+}
+
+.navbar-m {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+  display: none;
+
+  background-color: rgba($color: global.$primary, $alpha: 0.8);
+
+  /* If browser supports backdrop blur */
+  @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    backdrop-filter: blur(10px);
+  }
+
+  @media (max-width: 480px) {
+    display: block;
+  }
+
+  nav {
+    height: 100%;
+    display: flex;
+    color: global.$font-color;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: global.$font-color;
+    font-size: 10px;
+    @include anim.underline;
+    svg {
+      color: global.$font-color;
+    }
+  }
+}

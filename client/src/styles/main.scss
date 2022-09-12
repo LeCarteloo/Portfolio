@@ -1,0 +1,483 @@
+@use "./global" as global;
+@use "./anim" as anim;
+
+main {
+  min-height: 100%;
+  padding: 0 100px;
+
+  @media (max-width: 768px) {
+    padding: 0 50px;
+  }
+  @media (max-width: 480px) {
+    padding: 0 25px;
+  }
+
+  section:not(:last-of-type) {
+    margin-bottom: 3em;
+  }
+}
+
+.welcome {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  h3 {
+    font-weight: 400;
+    font-size: clamp(20px, 5vw, 40px);
+  }
+  h1 {
+    font-size: clamp(40px, 8vw, 70px);
+    font-weight: 900;
+  }
+  h2 {
+    font-size: clamp(30px, 6vw, 50px);
+    font-weight: 400;
+  }
+
+  &__text {
+    margin-bottom: 2.2em;
+  }
+
+  &__link {
+    font-size: global.$fs-xxl;
+    padding: 0.6em 0.5em;
+    border: 1px solid global.$font-color;
+    border-radius: global.$border-radius;
+    &:hover {
+      background-color: global.$font-color;
+      color: global.$primary;
+    }
+  }
+}
+
+.header {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 2.2em;
+  &::after {
+    content: "";
+    width: calc(100% - 2px);
+    height: 1px;
+    position: absolute;
+    z-index: -5;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: global.$font-color;
+  }
+
+  &__number {
+    position: relative;
+    color: global.$primary;
+    font-size: clamp(70px, 8vw, 200px);
+
+    text-shadow: -3px -3px 0 global.$font-color, 3px -3px 0 global.$font-color,
+      -3px 3px 0 global.$font-color, 3px 3px 0 global.$font-color;
+
+    @media (max-width: 1000px) {
+      text-shadow: -2px -2px 0 global.$font-color, 2px -2px 0 global.$font-color,
+        -2px 2px 0 global.$font-color, 2px 2px 0 global.$font-color;
+    }
+
+    opacity: 0.45;
+  }
+
+  &__title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+
+// 01. Projects
+.projects {
+  &__subtitle:not(:first-child) {
+    margin-top: 1.8em;
+  }
+
+  &__featured {
+    display: grid;
+    gap: 2.2em;
+    grid-template-columns: 1fr 1fr;
+
+    @media (max-width: 1080px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__other {
+    gap: 2.2em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    // For very small devices
+    @media (max-width: 380px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .more {
+    margin-top: 3.2em;
+    margin-bottom: 3.2em;
+    text-align: center;
+    &__button {
+      padding: 0.5em;
+      width: 200px;
+      border-radius: global.$border-radius;
+      border: 1px solid global.$font-color;
+      font-size: global.$fs-xxl;
+    }
+  }
+}
+
+.about {
+  &__desc {
+    text-align: justify;
+    font-size: global.$fs-xxl;
+    &:nth-child(2) {
+      margin-top: 1em;
+    }
+  }
+}
+
+.timeline {
+  width: 100%;
+  margin-top: 1.5em;
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__separator {
+    font-size: global.$fs-h2;
+    color: global.$font-color;
+    margin: 0 0.5em;
+  }
+
+  &__link {
+    font-size: clamp(18px, 3vw, global.$fs-h2);
+    text-align: center;
+    color: global.$font-color;
+    text-decoration: none;
+
+    @include anim.underline;
+  }
+
+  &__wrapper {
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      border-radius: 10px;
+      height: 7px;
+      background-color: rgba($color: global.$primary, $alpha: 0.8);
+    }
+    &::-webkit-scrollbar-button {
+      height: 0;
+      width: 0;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: global.$font-color;
+      border-radius: 10px;
+    }
+  }
+
+  &__body {
+    display: flex;
+  }
+}
+
+.step {
+  margin-top: 2.5em;
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 550px;
+
+  @media (max-width: 480px) {
+    min-width: 330px;
+  }
+
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    top: 25px;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    background-color: global.$font-color;
+  }
+
+  &__icon {
+    color: global.$font-color;
+    margin-left: -9px;
+    line-height: 0;
+    font-size: 50px;
+    background-color: global.$primary;
+  }
+
+  &__time {
+    margin: 0.35em 0 0.5em 0;
+    font-size: clamp(18px, 3vw, global.$fs-h2);
+    color: global.$font-color;
+  }
+
+  &__desc {
+    margin: 0.2em 0 0.2em 0;
+    font-size: clamp(18px, 3vw, global.$fs-h2);
+    font-size: global.$fs-xxl;
+  }
+
+  h4 {
+    font-weight: 400;
+  }
+
+  &__list {
+    color: global.$font-color;
+    list-style-type: "-  ";
+    margin-left: 1.1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(106px, 1fr));
+    font-size: 17px;
+  }
+}
+
+.stack {
+  margin-top: 6em;
+  width: 100%;
+  &__header {
+    padding: 1em;
+    color: global.$primary;
+    border-radius: global.$border-radius;
+    border: 2px solid global.$font-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      text-shadow: -2px -2px 0 global.$font-color, 2px -2px 0 global.$font-color,
+        -2px 2px 0 global.$font-color, 2px 2px 0 global.$font-color;
+      font-size: clamp(16px, 3vw, 50px);
+
+      @media (max-width: 1200px) {
+        text-shadow: -1px -1px 0 global.$font-color,
+          1px -1px 0 global.$font-color, -1px 1px 0 global.$font-color,
+          1px 1px 0 global.$font-color;
+      }
+
+      @media (max-width: 756px) {
+        text-shadow: -0.4px -0.4px 0 global.$font-color,
+          0.4px -0.4px 0 global.$font-color, -0.4px 0.4px 0 global.$font-color,
+          0.4px 0.4px 0 global.$font-color;
+      }
+    }
+    @media (max-width: 1500px) {
+      span:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
+  &__list {
+    margin-top: 3.5em;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    @media (max-width: 480px) {
+      padding: 0.62em;
+    }
+    border-radius: global.$border-radius;
+    transition: ease-in-out 0.2s;
+    img {
+      width: 70px;
+      height: 70px;
+      color: global.$font-color;
+    }
+    span {
+      color: global.$font-color;
+    }
+  }
+}
+
+.contact {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5em;
+
+    @media (max-width: 756px) {
+      flex-direction: column;
+    }
+  }
+
+  &__left {
+    width: 90%;
+    p {
+      font-size: global.$fs-xxl;
+    }
+  }
+
+  &__email {
+    display: flex;
+    align-items: center;
+    margin-top: 3em;
+
+    svg {
+      display: none;
+      font-size: 50px;
+      color: global.$font-color;
+      margin-right: 1em;
+    }
+    h3 {
+      font-size: clamp(16px, 2.5vw, 28px);
+    }
+  }
+
+  &__social {
+    margin-top: 1em;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+  }
+
+  &__item {
+    color: global.$font-color;
+    padding: 0.2em;
+    font-size: 50px;
+    display: inline-flex;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    $root: &;
+
+    &:hover {
+      color: global.$primary;
+    }
+
+    &--facebook:hover {
+      background-color: global.$fb-accent;
+    }
+    &--github:hover {
+      background-color: global.$github-accent;
+    }
+    &--linkedin:hover {
+      background-color: global.$linkedin-accent;
+    }
+  }
+
+  &__right {
+    width: 90%;
+    label {
+      color: global.$font-color;
+      font-size: global.$fs-xxl;
+    }
+    span {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 1em;
+    }
+    input,
+    textarea {
+      border: 1px solid global.$font-color;
+      border-radius: global.$border-radius;
+      width: calc(100% - 0.6em - 2px);
+      padding: 0.3em;
+      font-size: global.$fs-xxl;
+      color: global.$font-color;
+    }
+    textarea {
+      resize: vertical;
+      height: 260px;
+    }
+    button {
+      cursor: pointer;
+      font-size: global.$fs-xxl;
+      padding: 0.4em;
+      width: 180px;
+      border: 1px solid global.$font-color;
+      border-radius: global.$border-radius;
+    }
+  }
+
+  &__error {
+    border: 1px solid red !important;
+  }
+
+  &__msg {
+    background-color: global.$font-color;
+    color: global.$primary;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+  }
+}
+
+footer {
+  padding: 4em 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: global.$fs-lg;
+  p {
+    font-size: 15px;
+  }
+  u {
+    font-size: 15px;
+    display: inline;
+  }
+}
+
+.not-found {
+  padding-top: calc(81px + 1.5em);
+  height: calc(100% - 81px - 1.5em);
+  justify-content: center;
+  align-items: center;
+  &__img {
+    width: max(40%, 300px);
+    height: auto;
+  }
+  &__buttons {
+    margin-top: 1em;
+    display: flex;
+    gap: 2em;
+  }
+  &__link {
+    padding: 0.7em;
+    border-radius: global.$border-radius;
+    border: 1px solid global.$font-color;
+    &--filled {
+      background-color: global.$font-color;
+      color: global.$primary;
+    }
+  }
+  span {
+    margin-top: 0.5em;
+    font-size: 10px;
+    opacity: 0.5;
+    color: global.$font-color;
+    a {
+      text-decoration: underline;
+    }
+  }
+}
