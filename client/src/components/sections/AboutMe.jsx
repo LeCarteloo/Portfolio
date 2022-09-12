@@ -12,17 +12,17 @@ const AboutMe = ({ education, experience, technologies }) => {
       <SectionHeader number={"02"} title={"ABOUT ME"} />
       <div className="about">
         <p className="about__desc">
-          Hi, my name is Philip and i love creating applications. My interest in
-          IT started in 2014 when i created my own website for the first time,
-          written using HTML and CSS. The website was quite simple but it gave
-          me enough excitement to start developing in this direction.
+          Hi, my name is Filip and I love to develop applications. My interest
+          in IT started in 2014 when I created my own website, created using
+          HTML and CSS. The website was quite simple but it gave me enough
+          excitement to start developing in this direction.
         </p>
         <p className="about__desc">
-          After my initial adventure with web applications, i started to write
+          After my initial adventure with web applications, I started to write
           code in C++, and then in Java. While developing desktop application in
-          Java, my knowledge expanded to include such thins as: object-oriented
-          programming, unit testing, REST APIs. Currently my main interest is
-          web technologies.
+          Java, my knowledge expanded to include such things as: object-oriented
+          programming, unit testing, REST APIs. I am currently focusing on
+          React.js and Node.js.
         </p>
       </div>
       <div className="timeline">

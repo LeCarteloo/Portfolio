@@ -1,7 +1,7 @@
 import "../../styles/projectPage.scss";
 import TeamItem from "./TeamItem";
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import projects from "../../db/projects.json";
 import { useRef } from "react";
 import { RiGitRepositoryLine, RiRecordCircleLine } from "react-icons/ri";
@@ -13,6 +13,7 @@ const ProjectPage = () => {
   const refDesc = useRef();
   const refContent = useRef();
   const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Getting only featured projects
@@ -24,6 +25,10 @@ const ProjectPage = () => {
     const project = featuredProjects.find(
       (elem) => elem?.repoName.toString() === params.name
     );
+
+    if (!project) {
+      return navigate("/404", { replace: true });
+    }
 
     setFeaturedProjects(featuredProjects);
     setProject(project);

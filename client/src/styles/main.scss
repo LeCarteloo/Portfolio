@@ -441,11 +441,12 @@ footer {
 }
 
 .not-found {
-  height: 100%;
+  padding-top: calc(81px + 1.5em);
+  height: calc(100% - 81px - 1.5em);
   justify-content: center;
   align-items: center;
   &__img {
-    width: 50%;
+    width: max(40%, 300px);
     height: auto;
   }
   &__buttons {
@@ -460,6 +461,15 @@ footer {
     &--filled {
       background-color: global.$font-color;
       color: global.$primary;
+    }
+  }
+  span {
+    margin-top: 0.5em;
+    font-size: 10px;
+    opacity: 0.5;
+    color: global.$font-color;
+    a {
+      text-decoration: underline;
     }
   }
 }

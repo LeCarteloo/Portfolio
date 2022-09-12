@@ -12,14 +12,14 @@
       {
         "_id": 1,
         "year": "2022-present",
-        "name": "Master's Degree in Informatics",
+        "name": "Master's Degree in IT",
         "desc": "",
         "place": "University of Rzeszów"
       },
       {
         "_id": 2,
         "year": "2018-2022",
-        "name": "Engineer's Degree in Informatics",
+        "name": "Engineer's Degree in IT",
         "desc": "Specialization in Web applications",
         "place": "University of Rzeszów"
       }

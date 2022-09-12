@@ -104,37 +104,22 @@ section {
   }
 }
 
-.fade-appear {
-  opacity: 1;
-  transform: scale(1);
-}
+.fade {
+  &-appear,
+  &-enter,
+  &-exit,
+  &-enter-done {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-.fade-appear.fade-appear-active {
-  opacity: 0;
-  transform: scale(0);
-  transition: 1000ms;
-  transition-timing-function: cubic-bezier(0.56, 0.07, 1, -0.02);
-}
-
-.fade-enter {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.fade-enter-active {
-  opacity: 0;
-  transform: scale(0);
-  transition: 1000ms;
-  transition-timing-function: cubic-bezier(0.56, 0.07, 1, -0.02);
-}
-
-.fade-exit {
-  opacity: 1;
-  transform: scale(1);
-}
-.fade-exit.fade-exit-active {
-  opacity: 0;
-  transform: scale(0);
-  transition: 1000ms;
-  transition-timing-function: cubic-bezier(0.56, 0.07, 1, -0.02);
+  &-appear-active,
+  &-enter-active,
+  &-exit-active,
+  &-exit-done {
+    opacity: 0;
+    transform: scale(0);
+    transition: 1000ms;
+    transition-timing-function: cubic-bezier(0.56, 0.07, 1, -0.02);
+  }
 }

@@ -14,15 +14,19 @@ function App() {
   let location = useLocation();
 
   useEffect(() => {
-    if (location.pathname.toString() !== "/404") {
-      setLoading(true);
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-      return () => {
-        clearTimeout(timer);
-      };
+    if (location.pathname === "/404") {
+      setLoading(false);
+      return;
     }
+
+    setLoading(true);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [location.pathname]);
 
   return (
@@ -46,7 +50,7 @@ function App() {
               <Route path="/" element={<Main />} />
               <Route path="/projects/:name" element={<ProjectPage />} />
               <Route path="/404" element={<NotFound />} />
-              <Route path="*" element={<Navigate to="/404" />} />
+              <Route path="*" element={<Navigate to="/404" />} replace />
             </Routes>
             <NavBarMobile />
           </div>
