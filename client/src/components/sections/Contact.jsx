@@ -13,6 +13,7 @@ const initialErrors = {
 
 const Contact = ({ owner }) => {
   const [errors, setErrors] = useState({ ...initialErrors });
+  const [showMsg, setShowMsg] = useState(false);
   const refForm = useRef();
 
   const inputs = [
@@ -64,6 +65,7 @@ const Contact = ({ owner }) => {
       refForm.current.user_subject.value = "";
       refForm.current.message.value = "";
       setErrors({ ...initialErrors });
+      setShowMsg(true);
     } catch (err) {
       console.error(err);
     }
@@ -111,6 +113,7 @@ const Contact = ({ owner }) => {
           </div>
         </div>
         <div className="contact__right">
+          {showMsg && <p className="contact__msg">Thanks for the message!</p>}
           <form ref={refForm} onSubmit={sendEmail}>
             <label>
               Email adress

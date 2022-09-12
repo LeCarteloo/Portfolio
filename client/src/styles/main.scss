@@ -421,6 +421,14 @@ main {
   &__error {
     border: 1px solid red !important;
   }
+
+  &__msg {
+    background-color: global.$font-color;
+    color: global.$primary;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+  }
 }
 
 footer {
