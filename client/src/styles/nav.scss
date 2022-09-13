@@ -166,7 +166,8 @@
     a {
       opacity: 1;
       @include anim.underline;
-      &:hover {
+      &:hover,
+      &:focus-within {
         line-height: 150px;
       }
     }

@@ -2,6 +2,7 @@
 @use "./anim" as anim;
 
 main {
+  height: 1px;
   min-height: 100%;
   padding: 0 100px;
 
@@ -18,7 +19,7 @@ main {
 }
 
 .welcome {
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -170,6 +171,12 @@ main {
 
   &__wrapper {
     overflow-x: auto;
+
+    @supports (scrollbar-width: thin) {
+      scrollbar-width: thin;
+      scrollbar-color: global.$font-color global.$primary;
+    }
+
     &::-webkit-scrollbar {
       border-radius: 10px;
       height: 7px;

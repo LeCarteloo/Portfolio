@@ -9,18 +9,23 @@ const NavBar = () => {
   const [scrollPos, setScrollPos] = useState(0);
   const location = useLocation();
 
-  const openMenu = (state) => {
+  const handleMenu = async (state) => {
     setOpen(state);
     setShow(true);
 
     if (state) {
       document.body.style.overflowY = "hidden";
+      // Updating scroll position (after overflow changes, scroll pos also changes)
+      setScrollPos(window.scrollY);
+
       return;
     }
 
     document.body.style.overflowY = "auto";
+    setScrollPos(window.scrollY);
   };
 
+  // Handling display of top navbar
   const onScroll = () => {
     if (window.scrollY > scrollPos) {
       setShow(false);
@@ -30,23 +35,25 @@ const NavBar = () => {
     setScrollPos(window.scrollY);
   };
 
+  // Closing full screen menu
   const onResize = (e) => {
     if (e.currentTarget.innerWidth > 768 || e.currentTarget.innerWidth < 480) {
-      setOpen(false);
+      handleMenu(false);
       document.body.style.overflowY = "auto";
     }
   };
 
+  // Watching width of window only when menu is open
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.addEventListener("resize", onResize);
     }
-    console.log("resize");
     return () => {
       window.removeEventListener("resize", onResize);
     };
   }, [open === true]);
 
+  // Link element scrolls in to view
   useEffect(() => {
     if (location.hash) {
       let elem = document.getElementById(location.hash.slice(1));
@@ -58,6 +65,7 @@ const NavBar = () => {
     }
   }, [location]);
 
+  // Adding scroll listener
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", onScroll);
@@ -98,7 +106,7 @@ const NavBar = () => {
             className={`navbar__hamburger ${
               open ? "navbar__hamburger--open" : ""
             }`}
-            onClick={() => openMenu(!open)}
+            onClick={() => handleMenu(!open)}
           >
             <div className="navbar__line"></div>
             <div className="navbar__line"></div>
@@ -106,26 +114,30 @@ const NavBar = () => {
           </button>
         </nav>
       </header>
-      <header className={`menu ${open ? "menu--open" : ""}`}>
+      <header
+        aria-hidden={open}
+        tabIndex="1"
+        className={`menu ${open ? "menu--open" : ""}`}
+      >
         <nav className="menu__nav">
           <ul>
             <li>
-              <Link to="/" onClick={() => openMenu(false)}>
+              <Link to="/" onClick={() => handleMenu(false)}>
                 HOME
               </Link>
             </li>
             <li>
-              <Link to="/#projects" onClick={() => openMenu(false)}>
+              <Link to="/#projects" onClick={() => handleMenu(false)}>
                 PROJECTS
               </Link>
             </li>
             <li>
-              <Link to="/#about" onClick={() => openMenu(false)}>
+              <Link to="/#about" onClick={() => handleMenu(false)}>
                 ABOUT ME
               </Link>
             </li>
             <li>
-              <Link to="/#contact" onClick={() => openMenu(false)}>
+              <Link to="/#contact" onClick={() => handleMenu(false)}>
                 CONTACT
               </Link>
             </li>

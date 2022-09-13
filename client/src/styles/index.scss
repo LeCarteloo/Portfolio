@@ -4,6 +4,26 @@
 html {
   font-family: global.$font;
   scroll-behavior: smooth;
+
+  @supports (scrollbar-width: thin) {
+    scrollbar-width: thin;
+    scrollbar-color: global.$font-color global.$primary;
+  }
+
+  &::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 7px;
+    background-color: rgba($color: global.$primary, $alpha: 0.8);
+  }
+  &::-webkit-scrollbar-button {
+    height: 0;
+    width: 0;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: global.$font-color;
+    border-radius: 10px;
+  }
 }
 
 * {
