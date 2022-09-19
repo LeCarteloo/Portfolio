@@ -7,7 +7,7 @@ const NavBarMobile = () => {
   return (
     <header className="navbar-m">
       <nav>
-        <a className="navbar-m__link" to="/">
+        <a className="navbar-m__link" href="/">
           {/* <AiOutlineHome size="25px" /> */}
           <img
             src={Logo}
@@ -29,7 +29,7 @@ const NavBarMobile = () => {
           <MdOutlineMessage size="25px" />
           CONTACT
         </Link>
-        <a href="#!" className="navbar-m__link">
+        <a href="/resume.pdf" className="navbar-m__link">
           <AiOutlineArrowDown size="25px" />
           RESUME
         </a>

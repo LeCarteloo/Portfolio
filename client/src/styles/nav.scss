@@ -72,6 +72,10 @@
     border: 1px solid global.$font-color;
     border-radius: global.$border-radius;
     transition: ease-in-out 0.2s;
+    &:hover {
+      background-color: global.$font-color;
+      color: global.$primary;
+    }
   }
 
   &__hamburger {

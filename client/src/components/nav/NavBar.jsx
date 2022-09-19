@@ -98,9 +98,9 @@ const NavBar = () => {
               <span>03</span>
               <Link to="/#contact">Contact</Link>
             </div>
-            <button type="button" className="navbar__resume">
+            <a href="/resume.pdf" className="navbar__resume">
               Resume
-            </button>
+            </a>
           </div>
           <button
             className={`navbar__hamburger ${
@@ -122,11 +122,6 @@ const NavBar = () => {
         <nav className="menu__nav">
           <ul>
             <li>
-              <Link to="/" onClick={() => handleMenu(false)}>
-                HOME
-              </Link>
-            </li>
-            <li>
               <Link to="/#projects" onClick={() => handleMenu(false)}>
                 PROJECTS
               </Link>
@@ -140,6 +135,11 @@ const NavBar = () => {
               <Link to="/#contact" onClick={() => handleMenu(false)}>
                 CONTACT
               </Link>
+            </li>
+            <li>
+              <a href="/resume.pdf" className="menu__resume">
+                RESUME
+              </a>
             </li>
           </ul>
         </nav>

@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import projects from "../../db/projects.json";
 import { useRef } from "react";
 import { RiGitRepositoryLine, RiRecordCircleLine } from "react-icons/ri";
+import VideoPlayer from "./VideoPlayer";
 
 const ProjectPage = () => {
   const [featuredProjects, setFeaturedProjects] = useState([]);
@@ -57,6 +58,7 @@ const ProjectPage = () => {
       }}
     >
       <section>
+        <VideoPlayer />
         <img
           className="showcase__banner"
           src={project?.photo}

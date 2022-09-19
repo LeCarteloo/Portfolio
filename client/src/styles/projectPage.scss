@@ -244,3 +244,86 @@
     }
   }
 }
+
+.video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em auto;
+  position: relative;
+  width: 70%;
+
+  border: 1.5px solid global.$font-color;
+  border-radius: 5px;
+
+  @media (max-width: 756px) {
+    width: calc(100% - 3px);
+  }
+
+  &:hover,
+  &:focus-within,
+  &--paused {
+    .video__navigation {
+      opacity: 1;
+    }
+  }
+
+  &__player {
+    width: 100%;
+    height: auto;
+  }
+
+  &__navigation {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      background: linear-gradient(to top, rgba(16, 19, 34, 0.88), transparent);
+      border-radius: 0 0 5px 5px;
+      width: 100%;
+      aspect-ratio: 7/1;
+      bottom: 0;
+      left: 0;
+      pointer-events: none;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    justify-content: space-between;
+    color: global.$font-color;
+    &--right,
+    &--left {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+  }
+
+  &__volume {
+    display: flex;
+    align-items: center;
+    &:hover,
+    &:focus-within {
+      input {
+        display: block;
+      }
+    }
+  }
+
+  &__slider {
+    display: none;
+  }
+
+  &__timeline {
+  }
+}
