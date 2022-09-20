@@ -6,13 +6,101 @@ import { MdPictureInPictureAlt } from "react-icons/md";
 import { IoVolumeLow, IoVolumeMedium, IoVolumeMute } from "react-icons/io5";
 
 const VideoPlayer = () => {
-  const videoRef = useRef();
-  const videoContainerRef = useRef();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMiniPlayer, setIsMiniPlayer] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
-  //   muted, med hih
+  const [duration, setDuration] = useState({ current: "00:00", full: "00:00" });
   const [volumeLevel, setVolumeLevel] = useState({ level: 1, type: "medium" });
+
+  const videoRef = useRef();
+  const videoContainerRef = useRef();
+  const timeLineRef = useRef();
+  let isDragging = false;
+
+  const formatTime = (time) => {
+    const leadingZero = Intl.NumberFormat(undefined, {
+      minimumIntegerDigits: 2,
+    });
+
+    const seconds = leadingZero.format(Math.floor(time % 60));
+    const minutes = leadingZero.format(Math.floor(time / 60) % 60);
+    const hours = leadingZero.format(Math.floor(time / 3600));
+
+    let duration;
+
+    if (hours === "00") {
+      duration = `${minutes}:${seconds}`;
+    } else {
+      duration = `${hours}:${minutes}:${seconds}`;
+    }
+
+    return duration;
+  };
+
+  document.addEventListener("mouseup", (e) => {
+    if (isDragging) {
+      onDragging(e);
+    }
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+      onTimelineUpdate(e);
+    }
+  });
+
+  const onDragging = (e) => {
+    const rect = timeLineRef.current.getBoundingClientRect();
+    const percentage =
+      Math.min(Math.max(0, e.clientX - rect.x), rect.width) / rect.width;
+    timeLineRef.current.style.setProperty("--progress-position", percentage);
+
+    const isLeftMouseClicked = (e.buttons & 1) === 1;
+
+    console.log(e.buttons);
+
+    if (isLeftMouseClicked) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.currentTime = percentage * videoRef.current.duration;
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+
+    isDragging = isLeftMouseClicked;
+  };
+
+  const onTimelineUpdate = (e) => {
+    if (!isDragging) {
+      return;
+    }
+
+    e.preventDefault();
+    const rect = timeLineRef.current.getBoundingClientRect();
+    const percentage =
+      Math.min(Math.max(0, e.clientX - rect.x), rect.width) / rect.width;
+    timeLineRef.current.style.setProperty("--progress-position", percentage);
+    videoRef.current.currentTime = percentage * videoRef.current.duration;
+  };
+
+  const onTimeUpdate = () => {
+    const percentage = videoRef.current.currentTime / videoRef.current.duration;
+    timeLineRef.current.style.setProperty("--progress-position", percentage);
+
+    setDuration({
+      ...duration,
+      current: formatTime(videoRef.current.currentTime),
+    });
+  };
+
+  const onVideoLoad = () => {
+    const full = videoRef.current.duration;
+
+    let duration = formatTime(full);
+
+    setDuration({ current: "00:00", full: duration });
+  };
 
   const onPlay = () => {
     videoRef.current.paused
@@ -52,8 +140,6 @@ const VideoPlayer = () => {
       type = "muted";
     }
 
-    console.log(level >= 0.5);
-
     setVolumeLevel({ level: level, type: type });
     videoRef.current.volume = level;
   };
@@ -64,7 +150,15 @@ const VideoPlayer = () => {
       ref={videoContainerRef}
     >
       <div className="video__navigation">
-        <div className="video__timeline"></div>
+        <div
+          className={`video__timeline-container`}
+          ref={timeLineRef}
+          onMouseMove={onTimelineUpdate}
+          onMouseDown={onDragging}
+        >
+          <div className="video__timeline"></div>
+          <div className="video__thumb"></div>
+        </div>
         <div className="video__controls">
           <div className="video__controls--left">
             <button className="video__play-button" onClick={onPlay}>
@@ -77,11 +171,11 @@ const VideoPlayer = () => {
             <div className="video__volume">
               <button onClick={() => onVolumeChange(0)}>
                 {volumeLevel.type === "medium" ? (
-                  <IoVolumeMedium size={"1.3rem"} />
+                  <IoVolumeMedium size={"1.3em"} />
                 ) : volumeLevel.type === "low" ? (
-                  <IoVolumeLow size={"1.3rem"} />
+                  <IoVolumeLow size={"1.3em"} />
                 ) : (
-                  <IoVolumeMute size={"1.3rem"} />
+                  <IoVolumeMute size={"1.3em"} />
                 )}
               </button>
               <input
@@ -93,6 +187,10 @@ const VideoPlayer = () => {
                 onChange={(e) => onVolumeChange(e.target.valueAsNumber)}
                 value={volumeLevel.level}
               />
+            </div>
+            <div className="video__duration">
+              <span>{duration.current} /</span>
+              <span> {duration.full}</span>
             </div>
           </div>
           <div className="video__controls--right">
@@ -114,6 +212,8 @@ const VideoPlayer = () => {
         className="video__player"
         ref={videoRef}
         onClick={onPlay}
+        onLoadedMetadata={onVideoLoad}
+        onTimeUpdate={onTimeUpdate}
       ></video>
     </div>
   );

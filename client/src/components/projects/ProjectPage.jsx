@@ -55,6 +55,7 @@ const ProjectPage = () => {
       className="main showcase"
       style={{
         "--color": project && project.colors[0] + "CC",
+        "--full-color": project && project.colors[0],
       }}
     >
       <section>
