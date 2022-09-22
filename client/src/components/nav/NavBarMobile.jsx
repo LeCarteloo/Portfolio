@@ -8,7 +8,6 @@ const NavBarMobile = () => {
     <header className="navbar-m">
       <nav>
         <a className="navbar-m__link" href="/">
-          {/* <AiOutlineHome size="25px" /> */}
           <img
             src={Logo}
             width="18.75px"

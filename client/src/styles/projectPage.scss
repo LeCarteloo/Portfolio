@@ -253,6 +253,19 @@
   position: relative;
   width: 70%;
 
+  &--fullscreen {
+    max-height: 100vh;
+  }
+
+  button {
+    display: flex;
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
   border: 1.5px solid global.$font-color;
   border-radius: 5px;
 
@@ -312,11 +325,11 @@
   &__volume {
     display: flex;
     align-items: center;
-
+    justify-content: center;
     &:hover,
     &:focus-within {
       input {
-        width: auto;
+        width: 100px;
         visibility: visible;
         transform: scaleX(1);
       }
@@ -324,17 +337,16 @@
   }
 
   &__slider {
-    transition: width 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out, transform 0.1s ease-in-out;
     width: 0;
     transform: scaleX(0);
     transform-origin: left;
     visibility: hidden;
-
     accent-color: var(--full-color);
   }
 
   &__duration {
-    transition: 3s;
+    font-size: 14px;
   }
 
   &__timeline-container {

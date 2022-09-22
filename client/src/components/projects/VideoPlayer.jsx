@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRef } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { FiMinimize, FiMaximize } from "react-icons/fi";
 import { MdPictureInPictureAlt } from "react-icons/md";
 import { IoVolumeLow, IoVolumeMedium, IoVolumeMute } from "react-icons/io5";
 
-const VideoPlayer = () => {
+const VideoPlayer = ({ videoPath }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMiniPlayer, setIsMiniPlayer] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [duration, setDuration] = useState({ current: "00:00", full: "00:00" });
-  const [volumeLevel, setVolumeLevel] = useState({ level: 1, type: "medium" });
+  const [volumeLevel, setVolumeLevel] = useState({ level: 0, type: "muted" });
 
   const videoRef = useRef();
   const videoContainerRef = useRef();
@@ -99,6 +99,7 @@ const VideoPlayer = () => {
 
     let duration = formatTime(full);
 
+    videoRef.current.volume = 0;
     setDuration({ current: "00:00", full: duration });
   };
 
@@ -119,6 +120,10 @@ const VideoPlayer = () => {
     videoRef.current.requestPictureInPicture();
   };
 
+  useEffect(() => {
+    window.scrollTo({ top: scrollY, behavior: "auto" });
+  }, [isFullScreen]);
+
   const onFullScreen = () => {
     if (document.fullscreenElement !== null) {
       document.exitFullscreen();
@@ -126,6 +131,7 @@ const VideoPlayer = () => {
       return;
     }
     setIsFullScreen(true);
+    setScrollY(window.scrollY);
     videoContainerRef.current.requestFullscreen();
   };
 
@@ -146,7 +152,9 @@ const VideoPlayer = () => {
 
   return (
     <div
-      className={`video ${!isPlaying ? "video--paused" : ""}`}
+      className={`video ${!isPlaying ? "video--paused" : ""} ${
+        !isFullScreen ? "video--fullscreen" : ""
+      }`}
       ref={videoContainerRef}
     >
       <div className="video__navigation">
@@ -194,9 +202,9 @@ const VideoPlayer = () => {
             </div>
           </div>
           <div className="video__controls--right">
-            <button onClick={onMiniPlayer}>
+            {/* <button onClick={onMiniPlayer}>
               {<MdPictureInPictureAlt size={"1.3em"} />}
-            </button>
+            </button> */}
             <button onClick={onFullScreen}>
               {isFullScreen ? (
                 <FiMinimize size={"1.3em"} />
@@ -208,7 +216,7 @@ const VideoPlayer = () => {
         </div>
       </div>
       <video
-        src="/video.mp4"
+        src={videoPath}
         className="video__player"
         ref={videoRef}
         onClick={onPlay}

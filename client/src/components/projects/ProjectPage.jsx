@@ -59,7 +59,6 @@ const ProjectPage = () => {
       }}
     >
       <section>
-        <VideoPlayer />
         <img
           className="showcase__banner"
           src={project?.photo}
@@ -168,6 +167,12 @@ const ProjectPage = () => {
           ))}
         </div>
       </section>
+      {project?.video && (
+        <section>
+          <h2 className="showcase__title">VIDEO</h2>
+          <VideoPlayer videoPath={project.video} />
+        </section>
+      )}
       <div ref={refContent} className="showcase__desc"></div>
       <footer>
         {featuredProjects.map((project) => (
