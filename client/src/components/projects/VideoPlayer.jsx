@@ -120,18 +120,13 @@ const VideoPlayer = ({ videoPath }) => {
     videoRef.current.requestPictureInPicture();
   };
 
-  useEffect(() => {
-    window.scrollTo({ top: scrollY, behavior: "auto" });
-  }, [isFullScreen]);
-
   const onFullScreen = () => {
     if (document.fullscreenElement !== null) {
-      document.exitFullscreen();
       setIsFullScreen(false);
+      document.exitFullscreen();
       return;
     }
     setIsFullScreen(true);
-    setScrollY(window.scrollY);
     videoContainerRef.current.requestFullscreen();
   };
 
@@ -153,7 +148,7 @@ const VideoPlayer = ({ videoPath }) => {
   return (
     <div
       className={`video ${!isPlaying ? "video--paused" : ""} ${
-        !isFullScreen ? "video--fullscreen" : ""
+        isFullScreen ? "video--fullscreen" : ""
       }`}
       ref={videoContainerRef}
     >

@@ -170,7 +170,8 @@ const ProjectPage = () => {
       {project?.video && (
         <section>
           <h2 className="showcase__title">VIDEO</h2>
-          <VideoPlayer videoPath={project.video} />
+          {/* <VideoPlayer videoPath={project.video} /> */}
+          <video className="video" src={project.video} controls></video>
         </section>
       )}
       <div ref={refContent} className="showcase__desc"></div>
