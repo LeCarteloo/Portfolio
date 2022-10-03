@@ -6,15 +6,18 @@ import projects from "../../db/projects.json";
 import { useRef } from "react";
 import { RiGitRepositoryLine, RiRecordCircleLine } from "react-icons/ri";
 import VideoPlayer from "./VideoPlayer";
+import LoadingSpinner from "../LoadingSpinner";
 
 const ProjectPage = () => {
   const [featuredProjects, setFeaturedProjects] = useState([]);
   const [project, setProject] = useState();
-  const [team, setTeam] = useState([]);
+  const [team, setTeam] = useState();
   const refDesc = useRef();
   const refContent = useRef();
   const params = useParams();
   const navigate = useNavigate();
+
+  console.log(team);
 
   useEffect(() => {
     // Getting only featured projects
@@ -158,13 +161,17 @@ const ProjectPage = () => {
       <section>
         <h2 className="showcase__title">TEAM</h2>
         <div className="showcase__team">
-          {team.map((member, i) => (
-            <TeamItem
-              key={`member-${i}`}
-              member={member}
-              color={project?.colors[0]}
-            />
-          ))}
+          {team && team.length > 0 ? (
+            team.map((member, i) => (
+              <TeamItem
+                key={`member-${i}`}
+                member={member}
+                color={project?.colors[0]}
+              />
+            ))
+          ) : (
+            <LoadingSpinner />
+          )}
         </div>
       </section>
       {project?.video && (
