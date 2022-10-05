@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { RiGitRepositoryLine, RiRecordCircleLine } from "react-icons/ri";
 import VideoPlayer from "./VideoPlayer";
 import LoadingSpinner from "../LoadingSpinner";
+import ComponentItem from "./ComponentItem";
 
 const ProjectPage = () => {
   const [featuredProjects, setFeaturedProjects] = useState([]);
@@ -16,8 +17,6 @@ const ProjectPage = () => {
   const refContent = useRef();
   const params = useParams();
   const navigate = useNavigate();
-
-  console.log(team);
 
   useEffect(() => {
     // Getting only featured projects
@@ -154,7 +153,9 @@ const ProjectPage = () => {
           </div>
           <div className="showcase__group">
             <h4>Used fonts:</h4>
-            <div className="showcase__content">-</div>
+            <div className="showcase__content">
+              {project?.font ? <img src={project.font} alt="Font type" /> : "-"}
+            </div>
           </div>
         </div>
       </section>
@@ -179,6 +180,24 @@ const ProjectPage = () => {
           <h2 className="showcase__title">VIDEO</h2>
           {/* <VideoPlayer videoPath={project.video} /> */}
           <video className="video" src={project.video} controls></video>
+        </section>
+      )}
+      {project?.componentAPI && (
+        <section>
+          <h2 className="showcase__title">COMPONENTS</h2>
+          <img
+            className="showcase__img"
+            loading="lazy"
+            src={project.componentAPI.img}
+          />
+          {project.componentAPI.components.map((component) => (
+            <ComponentItem
+              key={component.id}
+              name={component.name}
+              desc={component.desc}
+              props={component.props}
+            />
+          ))}
         </section>
       )}
       <div ref={refContent} className="showcase__desc"></div>
