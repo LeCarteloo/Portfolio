@@ -1,8 +1,7 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Svg from "../assets/404.svg";
 
 const NotFound = () => {
-  const location = useLocation();
   const navigate = useNavigate();
 
   const goPreviousPage = () => navigate(-1);
