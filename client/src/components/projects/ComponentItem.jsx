@@ -10,7 +10,8 @@ const ComponentItem = ({ name, desc, props }) => {
     if (propsRef.current.style.maxHeight) {
       propsRef.current.style.maxHeight = null;
     } else {
-      propsRef.current.style.maxHeight = propsRef.current.scrollHeight + "px";
+      propsRef.current.style.maxHeight =
+        propsRef.current.scrollHeight + 3 + "px";
     }
   }, [open]);
 

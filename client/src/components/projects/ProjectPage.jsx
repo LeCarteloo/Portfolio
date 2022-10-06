@@ -183,21 +183,22 @@ const ProjectPage = () => {
         </section>
       )}
       {project?.componentAPI && (
-        <section>
+        <section className="component-list">
           <h2 className="showcase__title">COMPONENTS</h2>
           <img
             className="showcase__img"
             loading="lazy"
             src={project.componentAPI.img}
           />
-          {project.componentAPI.components.map((component) => (
-            <ComponentItem
-              key={component.id}
-              name={component.name}
-              desc={component.desc}
-              props={component.props}
-            />
-          ))}
+          {project.componentAPI.components &&
+            project.componentAPI.components.map((component) => (
+              <ComponentItem
+                key={component.id}
+                name={component.name}
+                desc={component.desc}
+                props={component.props}
+              />
+            ))}
         </section>
       )}
       <div ref={refContent} className="showcase__desc"></div>

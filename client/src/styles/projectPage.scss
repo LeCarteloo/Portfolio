@@ -248,6 +248,10 @@
 .component-item {
   width: 100%;
 
+  h4 {
+    font-size: 1.2rem;
+  }
+
   .prop-table {
     max-height: 0;
     overflow: hidden;
@@ -259,14 +263,15 @@
     background-color: #131e2d;
     text-align: left;
     padding: 0.5em;
-    border-radius: global.$border-radius;
+    transition: 0.2s ease-in-out;
   }
   table {
     width: 100%;
     color: global.$font-color;
     overflow-x: auto;
     border-collapse: collapse;
-    background-color: #131e2d21;
+    background-color: #131e2d67;
+    border: 3px solid #131e2d;
   }
   td,
   th {
@@ -281,6 +286,28 @@
   tbody {
     tr:not(:last-child) {
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+.component-list {
+  .component-item {
+    &:first-of-type {
+      button {
+        border-radius: global.$border-radius global.$border-radius 0 0;
+      }
+    }
+    &:last-child {
+      button {
+        border-radius: 0 0 global.$border-radius global.$border-radius;
+      }
+    }
+    &.open {
+      &:last-child {
+        button {
+          border-radius: 0;
+        }
+      }
     }
   }
 }
