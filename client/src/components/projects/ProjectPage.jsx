@@ -33,24 +33,36 @@ const ProjectPage = () => {
       return navigate("/404", { replace: true });
     }
 
-    setFeaturedProjects(featuredProjects);
-    setProject(project);
+    const controller = new AbortController();
 
     const getContributors = async () => {
-      const response = await fetch(
-        `https://api.github.com/repos/LeCarteloo/${project?.repoName}/stats/contributors`
-      );
-      let data = await response.json();
-      if (data.length > 0) {
-        data = await data.sort((a, b) => (a.total < b.total ? 1 : -1));
+      try {
+        const response = await fetch(
+          `https://api.github.com/repos/LeCarteloo/${project?.repoName}/stats/contributors`,
+          { signal: controller.signal }
+        );
+        let data = await response.json();
+        if (data.length > 0) {
+          data = await data.sort((a, b) => (a.total < b.total ? 1 : -1));
+        }
+        setTeam(data);
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          console.error(error);
+        }
       }
-      setTeam(data);
     };
 
     refDesc.current.innerHTML = project.desc ? project.desc : "";
     refContent.current.innerHTML = project.content ? project.content : "";
+    setFeaturedProjects(featuredProjects);
+    setProject(project);
     getContributors();
-  }, [params.name]);
+
+    return () => {
+      controller.abort();
+    };
+  }, []);
 
   return (
     <main
@@ -178,8 +190,8 @@ const ProjectPage = () => {
       {project?.video && (
         <section>
           <h2 className="showcase__title">VIDEO</h2>
-          {/* <VideoPlayer videoPath={project.video} /> */}
-          <video className="video" src={project.video} controls></video>
+          <VideoPlayer videoPath={project.video} />
+          {/* <video className="video" src={project.video} controls></video> */}
         </section>
       )}
       {project?.componentAPI && (

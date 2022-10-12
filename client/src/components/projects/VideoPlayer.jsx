@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { FiMinimize, FiMaximize } from "react-icons/fi";
 import { MdPictureInPictureAlt } from "react-icons/md";
@@ -8,10 +7,12 @@ import { IoVolumeLow, IoVolumeMedium, IoVolumeMute } from "react-icons/io5";
 const VideoPlayer = ({ videoPath }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMiniPlayer, setIsMiniPlayer] = useState(false);
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [fullScreen, setFullScreen] = useState({
+    isFull: false,
+    scrollPos: 0,
+  });
   const [duration, setDuration] = useState({ current: "00:00", full: "00:00" });
   const [volumeLevel, setVolumeLevel] = useState({ level: 0, type: "muted" });
-
   const videoRef = useRef();
   const videoContainerRef = useRef();
   const timeLineRef = useRef();
@@ -49,6 +50,10 @@ const VideoPlayer = ({ videoPath }) => {
     }
   });
 
+  document.addEventListener("fullscreenchange", () => {
+    window.scrollTo({ top: fullScreen.scrollPos, behavior: "instant" });
+  });
+
   const onDragging = (e) => {
     const rect = timeLineRef.current.getBoundingClientRect();
     const percentage =
@@ -56,8 +61,6 @@ const VideoPlayer = ({ videoPath }) => {
     timeLineRef.current.style.setProperty("--progress-position", percentage);
 
     const isLeftMouseClicked = (e.buttons & 1) === 1;
-
-    console.log(e.buttons);
 
     if (isLeftMouseClicked) {
       videoRef.current.pause();
@@ -88,10 +91,15 @@ const VideoPlayer = ({ videoPath }) => {
     const percentage = videoRef.current.currentTime / videoRef.current.duration;
     timeLineRef.current.style.setProperty("--progress-position", percentage);
 
+    const formattedTime = formatTime(videoRef.current.currentTime);
+
     setDuration({
       ...duration,
-      current: formatTime(videoRef.current.currentTime),
+      current: formattedTime,
     });
+    if (formattedTime === duration.full) {
+      setIsPlaying(false);
+    }
   };
 
   const onVideoLoad = () => {
@@ -122,11 +130,11 @@ const VideoPlayer = ({ videoPath }) => {
 
   const onFullScreen = () => {
     if (document.fullscreenElement !== null) {
-      setIsFullScreen(false);
+      setFullScreen({ ...fullScreen, isFull: false });
       document.exitFullscreen();
       return;
     }
-    setIsFullScreen(true);
+    setFullScreen({ isFull: true, scrollPos: window.scrollY });
     videoContainerRef.current.requestFullscreen();
   };
 
@@ -148,7 +156,7 @@ const VideoPlayer = ({ videoPath }) => {
   return (
     <div
       className={`video ${!isPlaying ? "video--paused" : ""} ${
-        isFullScreen ? "video--fullscreen" : ""
+        fullScreen.isFull ? "video--fullscreen" : ""
       }`}
       ref={videoContainerRef}
     >
@@ -201,7 +209,7 @@ const VideoPlayer = ({ videoPath }) => {
               {<MdPictureInPictureAlt size={"1.3em"} />}
             </button> */}
             <button onClick={onFullScreen}>
-              {isFullScreen ? (
+              {fullScreen.isFull ? (
                 <FiMinimize size={"1.3em"} />
               ) : (
                 <FiMaximize size={"1.3em"} />

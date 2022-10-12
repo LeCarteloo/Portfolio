@@ -6,7 +6,6 @@ import AboutMe from "./sections/AboutMe";
 // JSON db
 import projects from "../db/projects.json";
 import users from "../db/users.json";
-import { Link } from "react-router-dom";
 import Contact from "./sections/Contact";
 import Projects from "./sections/Projects";
 import Hero from "./sections/Hero";
