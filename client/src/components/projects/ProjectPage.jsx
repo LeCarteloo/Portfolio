@@ -1,7 +1,7 @@
 import "../../styles/projectPage.scss";
 import TeamItem from "./TeamItem";
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import projects from "../../db/projects.json";
 import { useRef } from "react";
 import { RiGitRepositoryLine, RiRecordCircleLine } from "react-icons/ri";
@@ -13,6 +13,7 @@ const ProjectPage = () => {
   const [featuredProjects, setFeaturedProjects] = useState([]);
   const [project, setProject] = useState();
   const [team, setTeam] = useState();
+  const location = useLocation();
   const refDesc = useRef();
   const refContent = useRef();
   const params = useParams();
@@ -62,7 +63,7 @@ const ProjectPage = () => {
     return () => {
       controller.abort();
     };
-  }, []);
+  }, [location.pathname]);
 
   return (
     <main
