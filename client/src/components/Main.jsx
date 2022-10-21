@@ -12,7 +12,6 @@ import Hero from "./sections/Hero";
 
 const Main = () => {
   const owner = users.find((user) => user.isOwner === true);
-
   const featuredProjects = projects.filter(
     (project) => project.isFeatured === true && project._id !== 0
   );
