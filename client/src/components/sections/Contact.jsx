@@ -82,8 +82,7 @@ const Contact = ({ owner }) => {
             the contact form
           </p>
           <div className="contact__email">
-            <BsFillEnvelopeFill />
-            <h3>{owner.email}</h3>
+            <a href={`mailto:${owner.email}`}>{owner.email}</a>
           </div>
           <div className="contact__social">
             <a

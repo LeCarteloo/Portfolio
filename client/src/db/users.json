@@ -26,6 +26,11 @@
     ],
     "technologies": [
       {
+        "name": "Typescript",
+        "icon": "typescript",
+        "color": "blue"
+      },
+      {
         "name": "Javascript",
         "icon": "javascript",
         "color": "#F0DB4F"
