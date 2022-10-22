@@ -26,11 +26,6 @@
     ],
     "technologies": [
       {
-        "name": "Typescript",
-        "icon": "typescript",
-        "color": "blue"
-      },
-      {
         "name": "Javascript",
         "icon": "javascript",
         "color": "#F0DB4F"
@@ -49,6 +44,11 @@
         "name": "Express.js",
         "icon": "express",
         "color": "gray"
+      },
+      {
+        "name": "Typescript",
+        "icon": "typescript",
+        "color": "#007acc"
       },
       {
         "name": "PHP",
