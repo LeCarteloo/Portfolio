@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import '../../styles/nav.scss';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
+import useIsMobile from '../../hooks/useIsMobile';
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(true);
-  const [scrollPos, setScrollPos] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [scrollPos, setScrollPos] = useState(756);
   const location = useLocation();
+  const isMobile = useIsMobile();
 
   const handleMenu = (state) => {
     setOpen(state);
@@ -40,10 +41,7 @@ const NavBar = () => {
   const onResize = (e) => {
     if (e.currentTarget.innerWidth > 768 || e.currentTarget.innerWidth < 480) {
       handleMenu(false);
-      setIsMobile(true);
       document.body.style.overflowY = 'auto';
-    } else {
-      setIsMobile(false);
     }
   };
 
@@ -79,6 +77,8 @@ const NavBar = () => {
       window.removeEventListener('scroll', onScroll);
     };
   }, [scrollPos]);
+
+  console.log(open, isMobile);
 
   return (
     <>
@@ -118,8 +118,8 @@ const NavBar = () => {
           </button>
         </nav>
       </header>
-      {isMobile ? (
-        <header
+      {isMobile && open ? (
+        <div
           aria-hidden={!open}
           tabIndex={open ? 1 : -1}
           className={`menu ${open ? 'menu--open' : ''}`}
@@ -164,7 +164,7 @@ const NavBar = () => {
               </li>
             </ul>
           </nav>
-        </header>
+        </div>
       ) : null}
     </>
   );

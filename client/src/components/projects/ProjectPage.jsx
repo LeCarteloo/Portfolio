@@ -42,6 +42,16 @@ const ProjectPage = () => {
           { signal: controller.signal }
         );
 
+        // Retrying after 30seconds
+        if (response.status === 202) {
+          setTimeout(() => {
+            response = fetch(
+              `https://api.github.com/repos/LeCarteloo/${project?.repoName}/stats/contributors`,
+              { signal: controller.signal }
+            );
+          }, 30000);
+        }
+
         let data = await response.json();
         if (data.length > 0) {
           data = await data.sort((a, b) => (a.total < b.total ? 1 : -1));
@@ -72,6 +82,7 @@ const ProjectPage = () => {
         '--full-color': project && project.colors[0],
       }}
     >
+      "hey"
       <section>
         <img
           className="showcase__banner"

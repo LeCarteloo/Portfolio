@@ -2,8 +2,15 @@ import { MdOutlineArticle, MdOutlineMessage } from 'react-icons/md';
 import { AiOutlineUser, AiOutlineArrowDown } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
+import useIsMobile from '../../hooks/useIsMobile';
 
 const NavBarMobile = () => {
+  const isMobile = useIsMobile(480);
+
+  if (!isMobile) {
+    return;
+  }
+
   return (
     <header className="navbar-m">
       <nav>
