@@ -1,27 +1,28 @@
-import { useEffect, useState } from "react";
-import "../../styles/nav.scss";
-import { Link, useLocation } from "react-router-dom";
-import Logo from "../../assets/logo.svg";
+import { useEffect, useState } from 'react';
+import '../../styles/nav.scss';
+import { Link, useLocation } from 'react-router-dom';
+import Logo from '../../assets/logo.svg';
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(true);
   const [scrollPos, setScrollPos] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
 
-  const handleMenu = async (state) => {
+  const handleMenu = (state) => {
     setOpen(state);
     setShow(true);
 
     if (state) {
-      document.body.style.overflowY = "hidden";
+      document.body.style.overflowY = 'hidden';
       // Updating scroll position (after overflow changes, scroll pos also changes)
       setScrollPos(window.scrollY);
 
       return;
     }
 
-    document.body.style.overflowY = "auto";
+    document.body.style.overflowY = 'auto';
     setScrollPos(window.scrollY);
   };
 
@@ -39,17 +40,20 @@ const NavBar = () => {
   const onResize = (e) => {
     if (e.currentTarget.innerWidth > 768 || e.currentTarget.innerWidth < 480) {
       handleMenu(false);
-      document.body.style.overflowY = "auto";
+      setIsMobile(true);
+      document.body.style.overflowY = 'auto';
+    } else {
+      setIsMobile(false);
     }
   };
 
   // Watching width of window only when menu is open
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", onResize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', onResize);
     }
     return () => {
-      window.removeEventListener("resize", onResize);
+      window.removeEventListener('resize', onResize);
     };
   }, [open === true]);
 
@@ -58,31 +62,31 @@ const NavBar = () => {
     if (location.hash) {
       let elem = document.getElementById(location.hash.slice(1));
       if (elem) {
-        elem.scrollIntoView({ behavior: "smooth" });
+        elem.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
   }, [location]);
 
   // Adding scroll listener
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", onScroll);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', onScroll);
     }
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener('scroll', onScroll);
     };
   }, [scrollPos]);
 
   return (
     <>
-      <header className={`navbar ${show ? "navbar--show" : ""}`}>
+      <header className={`navbar ${show ? 'navbar--show' : ''}`}>
         <nav className="navbar__nav">
           <div className="navbar__logo">
             <a href="/">
-              <img src={Logo} width="30px" height="30px" />
+              <img src={Logo} width="30px" height="30px" alt={'Logo'} />
             </a>
           </div>
           <div className="navbar__items">
@@ -104,7 +108,7 @@ const NavBar = () => {
           </div>
           <button
             className={`navbar__hamburger ${
-              open ? "navbar__hamburger--open" : ""
+              open ? 'navbar__hamburger--open' : ''
             }`}
             onClick={() => handleMenu(!open)}
           >
@@ -114,36 +118,54 @@ const NavBar = () => {
           </button>
         </nav>
       </header>
-      <header
-        aria-hidden={open}
-        tabIndex="1"
-        className={`menu ${open ? "menu--open" : ""}`}
-      >
-        <nav className="menu__nav">
-          <ul>
-            <li>
-              <Link to="/#projects" onClick={() => handleMenu(false)}>
-                PROJECTS
-              </Link>
-            </li>
-            <li>
-              <Link to="/#about" onClick={() => handleMenu(false)}>
-                ABOUT ME
-              </Link>
-            </li>
-            <li>
-              <Link to="/#contact" onClick={() => handleMenu(false)}>
-                CONTACT
-              </Link>
-            </li>
-            <li>
-              <a href="/resume.pdf" className="menu__resume">
-                RESUME
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      {isMobile ? (
+        <header
+          aria-hidden={!open}
+          tabIndex={open ? 1 : -1}
+          className={`menu ${open ? 'menu--open' : ''}`}
+        >
+          <nav className="menu__nav">
+            <ul>
+              <li>
+                <Link
+                  to="/#projects"
+                  onClick={() => handleMenu(false)}
+                  tabIndex={open ? 1 : -1}
+                >
+                  PROJECTS
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/#about"
+                  onClick={() => handleMenu(false)}
+                  tabIndex={open ? 1 : -1}
+                >
+                  ABOUT ME
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/#contact"
+                  onClick={() => handleMenu(false)}
+                  tabIndex={open ? 1 : -1}
+                >
+                  CONTACT
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="/resume.pdf"
+                  className="menu__resume"
+                  tabIndex={open ? 1 : -1}
+                >
+                  RESUME
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      ) : null}
     </>
   );
 };

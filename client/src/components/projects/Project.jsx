@@ -1,6 +1,6 @@
-import { FaGithub } from "react-icons/fa";
-import { AiOutlineProject } from "react-icons/ai";
-import { BsArrowUpRightCircleFill } from "react-icons/bs";
+import { FaGithub } from 'react-icons/fa';
+import { AiOutlineProject } from 'react-icons/ai';
+import { BsArrowUpRightCircleFill } from 'react-icons/bs';
 
 const Project = ({ project }) => {
   return (
@@ -30,12 +30,12 @@ const Project = ({ project }) => {
       </div>
       <div className="project__body">
         <div>
-          <h2>{project.name}</h2>
+          <h3 className="project__title">{project.name}</h3>
           <p className="project__desc">{project.desc}</p>
         </div>
         <span className="project__stack">
-          {project.technologies.map((tech) => tech.name + " ")} {" | "}
-          {project.tools.map((tool) => tool.name + " ")}
+          {project.technologies.map((tech) => tech.name + ' ')} {' | '}
+          {project.tools.map((tool) => tool.name + ' ')}
         </span>
       </div>
     </div>

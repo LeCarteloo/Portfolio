@@ -1,13 +1,13 @@
-import "../../styles/projectPage.scss";
-import TeamItem from "./TeamItem";
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import projects from "../../db/projects.json";
-import { useRef } from "react";
-import { RiGitRepositoryLine, RiRecordCircleLine } from "react-icons/ri";
-import VideoPlayer from "./VideoPlayer";
-import LoadingSpinner from "../LoadingSpinner";
-import ComponentItem from "./ComponentItem";
+import '../../styles/projectPage.scss';
+import TeamItem from './TeamItem';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import projects from '../../db/projects.json';
+import { useRef } from 'react';
+import { RiGitRepositoryLine, RiRecordCircleLine } from 'react-icons/ri';
+import VideoPlayer from './VideoPlayer';
+import LoadingSpinner from '../LoadingSpinner';
+import ComponentItem from './ComponentItem';
 
 const ProjectPage = () => {
   const [featuredProjects, setFeaturedProjects] = useState([]);
@@ -30,34 +30,34 @@ const ProjectPage = () => {
     );
 
     if (!project) {
-      return navigate("/404", { replace: true });
+      return navigate('/404', { replace: true });
     }
 
     const controller = new AbortController();
 
     const getContributors = async () => {
       try {
-        const response = await fetch(
+        let response = await fetch(
           `https://api.github.com/repos/LeCarteloo/${project?.repoName}/stats/contributors`,
           { signal: controller.signal }
         );
+
         let data = await response.json();
         if (data.length > 0) {
           data = await data.sort((a, b) => (a.total < b.total ? 1 : -1));
         }
         setTeam(data);
       } catch (error) {
-        if (error.name !== "AbortError") {
+        if (error.name !== 'AbortError') {
           console.error(error);
         }
       }
     };
-
-    refDesc.current.innerHTML = project.desc ? project.desc : "";
-    refContent.current.innerHTML = project.content ? project.content : "";
+    getContributors();
+    refDesc.current.innerHTML = project.desc ? project.desc : '';
+    refContent.current.innerHTML = project.content ? project.content : '';
     setFeaturedProjects(featuredProjects);
     setProject(project);
-    getContributors();
 
     return () => {
       controller.abort();
@@ -68,8 +68,8 @@ const ProjectPage = () => {
     <main
       className="main showcase"
       style={{
-        "--color": project && project.colors[0] + "CC",
-        "--full-color": project && project.colors[0],
+        '--color': project && project.colors[0] + 'CC',
+        '--full-color': project && project.colors[0],
       }}
     >
       <section>
@@ -82,11 +82,11 @@ const ProjectPage = () => {
         <div className="showcase__links">
           <a
             className={`showcase__link ${
-              !project?.links.repo && "showcase__link--disabled"
+              !project?.links.repo && 'showcase__link--disabled'
             }`}
             tabIndex={!project?.links.repo ? -1 : 0}
             aria-disabled={!project?.links.repo}
-            href={project?.links.repo ? project?.links.repo : "!#"}
+            href={project?.links.repo ? project?.links.repo : '!#'}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -95,11 +95,11 @@ const ProjectPage = () => {
           </a>
           <a
             className={`showcase__link ${
-              !project?.links.live && "showcase__link--disabled"
+              !project?.links.live && 'showcase__link--disabled'
             }`}
             tabIndex={!project?.links.live ? -1 : 0}
             aria-disabled={!project?.links.live}
-            href={project?.links.live ? project?.links.live : "!#"}
+            href={project?.links.live ? project?.links.live : '!#'}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -158,7 +158,7 @@ const ProjectPage = () => {
                   className="showcase__color"
                   style={{ backgroundColor: color }}
                 >
-                  <span style={{ mixBlendMode: "difference" }}>{color}</span>
+                  <span style={{ mixBlendMode: 'difference' }}>{color}</span>
                 </div>
               ))}
             </div>
@@ -166,7 +166,7 @@ const ProjectPage = () => {
           <div className="showcase__group">
             <h4>Used fonts:</h4>
             <div className="showcase__content">
-              {project?.font ? <img src={project.font} alt="Font type" /> : "-"}
+              {project?.font ? <img src={project.font} alt="Font type" /> : '-'}
             </div>
           </div>
         </div>

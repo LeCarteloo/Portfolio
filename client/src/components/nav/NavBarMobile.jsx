@@ -1,7 +1,7 @@
-import { MdOutlineArticle, MdOutlineMessage } from "react-icons/md";
-import { AiOutlineUser, AiOutlineArrowDown } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.svg";
+import { MdOutlineArticle, MdOutlineMessage } from 'react-icons/md';
+import { AiOutlineUser, AiOutlineArrowDown } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import Logo from '../../assets/logo.svg';
 
 const NavBarMobile = () => {
   return (
@@ -12,7 +12,8 @@ const NavBarMobile = () => {
             src={Logo}
             width="18.75px"
             height="18.75px"
-            style={{ margin: "3.125px" }}
+            style={{ margin: '3.125px' }}
+            alt={'Page logo'}
           />
           HOME
         </a>

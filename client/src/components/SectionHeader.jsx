@@ -1,10 +1,10 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const SectionHeader = ({ number, title }) => {
   return (
     <div className="header">
       <span className="header__number">{number}</span>
-      <h1 className="header__title">{title}</h1>
+      <h2 className="header__title">{title}</h2>
     </div>
   );
 };

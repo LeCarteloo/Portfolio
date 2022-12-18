@@ -1,4 +1,4 @@
-@use "./global" as global;
+@use './global' as global;
 
 // Featured project styles
 .fproject {
@@ -28,6 +28,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: clamp(20px, 4vw, global.$fs-h2);
+    font-weight: global.$fw-h2;
   }
 
   &__info {
@@ -90,6 +92,11 @@
     display: flex;
     justify-content: center;
     gap: 1em;
+  }
+
+  &__title {
+    font-size: clamp(20px, 4vw, global.$fs-h4);
+    font-weight: bold;
   }
 
   &__link {
