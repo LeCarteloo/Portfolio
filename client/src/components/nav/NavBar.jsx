@@ -7,9 +7,9 @@ import useIsMobile from '../../hooks/useIsMobile';
 const NavBar = () => {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(true);
-  const [scrollPos, setScrollPos] = useState(756);
+  const [scrollPos, setScrollPos] = useState();
   const location = useLocation();
-  const isMobile = useIsMobile();
+  const isMobile = useIsMobile(756);
 
   const handleMenu = (state) => {
     setOpen(state);
@@ -78,8 +78,6 @@ const NavBar = () => {
     };
   }, [scrollPos]);
 
-  console.log(open, isMobile);
-
   return (
     <>
       <header className={`navbar ${show ? 'navbar--show' : ''}`}>
@@ -118,7 +116,7 @@ const NavBar = () => {
           </button>
         </nav>
       </header>
-      {isMobile && open ? (
+      {isMobile ? (
         <div
           aria-hidden={!open}
           tabIndex={open ? 1 : -1}
