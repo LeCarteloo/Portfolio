@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useIsMobile = (breakpoint) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -7,7 +7,9 @@ const useIsMobile = (breakpoint) => {
     setIsMobile(window.innerWidth < breakpoint);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    setIsMobile(window.innerWidth < breakpoint);
+
     window.addEventListener('resize', updateSize);
 
     return () => window.removeEventListener('resize', updateSize);

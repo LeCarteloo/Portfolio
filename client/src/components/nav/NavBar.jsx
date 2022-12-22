@@ -78,6 +78,21 @@ const NavBar = () => {
     };
   }, [scrollPos]);
 
+  const links = [
+    {
+      label: 'Projects',
+      path: '/#projects',
+    },
+    {
+      label: 'About me',
+      path: '/#about',
+    },
+    {
+      label: 'Contact',
+      path: '/#contact',
+    },
+  ];
+
   return (
     <>
       <header className={`navbar ${show ? 'navbar--show' : ''}`}>
@@ -88,18 +103,12 @@ const NavBar = () => {
             </a>
           </div>
           <div className="navbar__items">
-            <div className="navbar__item">
-              <span>01</span>
-              <Link to="/#projects">Projects</Link>
-            </div>
-            <div className="navbar__item">
-              <span>02</span>
-              <Link to="/#about">About me</Link>
-            </div>
-            <div className="navbar__item">
-              <span>03</span>
-              <Link to="/#contact">Contact</Link>
-            </div>
+            {links.map((link, i) => (
+              <div className="navbar__item" key={link.label}>
+                <span>0{i + 1}</span>
+                <Link to={link.path}>{link.label}</Link>
+              </div>
+            ))}
             <a href="/resume.pdf" className="navbar__resume">
               Resume
             </a>
@@ -124,38 +133,23 @@ const NavBar = () => {
         >
           <nav className="menu__nav">
             <ul>
-              <li>
-                <Link
-                  to="/#projects"
-                  onClick={() => handleMenu(false)}
-                  tabIndex={open ? 1 : -1}
-                >
-                  PROJECTS
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/#about"
-                  onClick={() => handleMenu(false)}
-                  tabIndex={open ? 1 : -1}
-                >
-                  ABOUT ME
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/#contact"
-                  onClick={() => handleMenu(false)}
-                  tabIndex={open ? 1 : -1}
-                >
-                  CONTACT
-                </Link>
-              </li>
+              {links.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.path}
+                    onClick={() => handleMenu(false)}
+                    tabIndex={open ? 0 : -1}
+                    style={{ textTransform: 'uppercase' }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <a
                   href="/resume.pdf"
                   className="menu__resume"
-                  tabIndex={open ? 1 : -1}
+                  tabIndex={open ? 0 : -1}
                 >
                   RESUME
                 </a>

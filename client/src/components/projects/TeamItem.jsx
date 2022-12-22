@@ -1,27 +1,19 @@
-import { FaFacebookSquare, FaGithub, FaLinkedin } from "react-icons/fa";
-import PropTypes from "prop-types";
+import { FaFacebookSquare, FaGithub, FaLinkedin } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 const TeamItem = ({ color, member }) => {
-  let additions = 0;
-  let deletions = 0;
-
-  for (const week of member.weeks) {
-    additions += week.a;
-    deletions += week.d;
-  }
-
   return (
     <div
       className={`team-item ${
-        member.author.login === "LeCarteloo" ? "team-item--me" : ""
+        member.login === 'LeCarteloo' ? 'team-item--me' : ''
       }`}
       style={{
-        border: member.author.login === "LeCarteloo" && `solid 1px ${color}`,
+        border: member.login === 'LeCarteloo' && `solid 1px ${color}`,
       }}
     >
       <img
         className="team-item__avatar"
-        src={member.author.avatar_url}
+        src={member.avatar_url}
         alt="member-avatar"
       />
       <div className="team-item__wrapper">
@@ -31,19 +23,15 @@ const TeamItem = ({ color, member }) => {
               <th>USERNAME</th>
               <th>NAME</th>
               <th>COMMITS</th>
-              <th>ADDITIONS</th>
-              <th>DELETIONS</th>
               <th>LINKS</th>
             </tr>
             <tr>
-              <td>{member.author.login}</td>
+              <td>{member.login}</td>
               <td>-</td>
-              <td>{member.total}</td>
-              <td>{additions}</td>
-              <td>{deletions}</td>
+              <td>{member.contributions}</td>
               <td>
                 <a
-                  href={`https://github.com/${member.author.login}`}
+                  href={`https://github.com/${member.login}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="team-item__link"

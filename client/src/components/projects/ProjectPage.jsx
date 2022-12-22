@@ -38,23 +38,15 @@ const ProjectPage = () => {
     const getContributors = async () => {
       try {
         let response = await fetch(
-          `https://api.github.com/repos/LeCarteloo/${project?.repoName}/stats/contributors`,
+          `https://api.github.com/repos/LeCarteloo/${project?.repoName}/contributors`,
           { signal: controller.signal }
         );
 
-        // Retrying after 30seconds
-        if (response.status === 202) {
-          setTimeout(() => {
-            response = fetch(
-              `https://api.github.com/repos/LeCarteloo/${project?.repoName}/stats/contributors`,
-              { signal: controller.signal }
-            );
-          }, 30000);
-        }
-
         let data = await response.json();
         if (data.length > 0) {
-          data = await data.sort((a, b) => (a.total < b.total ? 1 : -1));
+          data = await data.sort((a, b) =>
+            a.contributions < b.contributions ? 1 : -1
+          );
         }
         setTeam(data);
       } catch (error) {
@@ -63,6 +55,7 @@ const ProjectPage = () => {
         }
       }
     };
+
     getContributors();
     refDesc.current.innerHTML = project.desc ? project.desc : '';
     refContent.current.innerHTML = project.content ? project.content : '';
@@ -212,6 +205,7 @@ const ProjectPage = () => {
             className="showcase__img"
             loading="lazy"
             src={project.componentAPI.img}
+            alt="components"
           />
           {project.componentAPI.components &&
             project.componentAPI.components.map((component) => (

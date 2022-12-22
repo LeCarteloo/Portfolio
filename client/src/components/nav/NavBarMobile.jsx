@@ -11,8 +11,26 @@ const NavBarMobile = () => {
     return;
   }
 
+  const links = [
+    {
+      icon: <MdOutlineArticle size="25px" />,
+      label: 'Projects',
+      path: '/#projects',
+    },
+    {
+      icon: <AiOutlineUser size="25px" />,
+      label: 'About me',
+      path: '/#about',
+    },
+    {
+      icon: <MdOutlineMessage size="25px" />,
+      label: 'Contact',
+      path: '/#contact',
+    },
+  ];
+
   return (
-    <header className="navbar-m">
+    <div className="navbar-m">
       <nav>
         <a className="navbar-m__link" href="/">
           <img
@@ -24,24 +42,23 @@ const NavBarMobile = () => {
           />
           HOME
         </a>
-        <Link className="navbar-m__link" to="/#projects">
-          <MdOutlineArticle size="25px" />
-          PROJECTS
-        </Link>
-        <Link className="navbar-m__link" to="/#about">
-          <AiOutlineUser size="25px" />
-          ABOUT ME
-        </Link>
-        <Link className="navbar-m__link" to="/#contact">
-          <MdOutlineMessage size="25px" />
-          CONTACT
-        </Link>
+
+        {links.map((link) => (
+          <Link
+            className="navbar-m__link"
+            to={link.path}
+            style={{ textTransform: 'uppercase' }}
+          >
+            {link.icon}
+            {link.label}
+          </Link>
+        ))}
         <a href="/resume.pdf" className="navbar-m__link">
           <AiOutlineArrowDown size="25px" />
           RESUME
         </a>
       </nav>
-    </header>
+    </div>
   );
 };
 
